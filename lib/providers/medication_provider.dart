@@ -48,4 +48,13 @@ class MedicationProvider extends ChangeNotifier {
     await saveMedications();
     notifyListeners();
   }
+
+  //marks a medication as taken (a specefic med)
+  Future<void>  markAsTaken(String id) async{
+    final med = medications.firstWhere((m) => m.id == id);
+    med.isTaken = true;
+    med.isMissed = false;
+    await _saveMedications();
+    notifyListeners();
+  }
 }
