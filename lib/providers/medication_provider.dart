@@ -50,11 +50,21 @@ class MedicationProvider extends ChangeNotifier {
   }
 
   //marks a medication as taken (a specefic med)
-  Future<void>  markAsTaken(String id) async{
+  Future<void> markAsTaken(String id) async {
     final med = medications.firstWhere((m) => m.id == id);
     med.isTaken = true;
     med.isMissed = false;
     await _saveMedications();
     notifyListeners();
   }
+
+  // remoce from list
+  Future<void> deleteMedication(String id) async {
+    medications.removeWhere((m) => m.id == id);
+    await _saveMedications();
+    notifyListeners();
+  }
+
+  int get takenCount => medications.where((m) => m.isTaken).length;
+  int get totalCount => medications.length;
 }
