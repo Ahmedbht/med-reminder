@@ -6,24 +6,24 @@ import '../models/medication.dart';
 
 class MedicationProvider extends ChangeNotifier {
   final _uuid = const Uuid();
-  List<Medication> _medications = [];
+  List<Medication> medications = [];
 
   static const String _storageKey = 'medications';
 
   Future<void> loadMedications() async {
-    final prefs = await sharedPreferences.getInstance();
+    final prefs = await SharedPreferences.getInstance();
     final jsonString = prefs.getString(_storageKey);
 
     if (jsonString != null) {
       final List<dynamic> jsonList = json.decode(jsonString);
-      _medications = jsonList.map((json) => Medication.fromJson(json)).toList();
+      medications = jsonList.map((json) => Medication.fromJson(json)).toList();
     }
     notifyListeners();
   }
 
   Future<void> saveMedications() async {
-    final prefs = await sharedPreferences.getInstance();
-    final jsonList = _medications.map((m) => m.toJson()).toList();
+    final prefs = await SharedPreferences.getInstance();
+    final jsonList = medications.map((m) => m.toJson()).toList();
     await prefs.setString(_storageKey, json.encode(jsonList));
   }
 
@@ -54,14 +54,14 @@ class MedicationProvider extends ChangeNotifier {
     final med = medications.firstWhere((m) => m.id == id);
     med.isTaken = true;
     med.isMissed = false;
-    await _saveMedications();
+    await saveMedications();
     notifyListeners();
   }
 
-  // remoce from list
+  // remove from list
   Future<void> deleteMedication(String id) async {
     medications.removeWhere((m) => m.id == id);
-    await _saveMedications();
+    await saveMedications();
     notifyListeners();
   }
 
