@@ -28,5 +28,24 @@ class MedicationProvider extends ChangeNotifier {
   }
 
   //add a brand new medication
-  
+  Future<void> addMedication({
+    required String name,
+    required String dosage,
+    required String form,
+    required String time,
+    String note = '',
+  }) async {
+    //for building a new medication object
+    final med = Medication(
+      id: _uuid.v4(), // generate unique ID
+      name: name,
+      dosage: dosage,
+      form: form,
+      time: time,
+      note: note,
+    );
+    medications.add(med);
+    await saveMedications();
+    notifyListeners();
+  }
 }
