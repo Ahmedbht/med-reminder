@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'providers/medication_provider.dart';
-
+import 'screens/home_screen.dart'
 void main() {
   runApp(
     MultiProvider(
@@ -19,10 +19,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(title: const Text('MediTrack')),
-        body: const Center(child: Text('It works!')),
-      ),
-    );
+        title : 'MediTrack',
+        home: const Homescreen(),
+      );
   }
 }
