@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(title: const Text('Med Reminder')),
+        appBar: AppBar(title: const Text('MediTrack')),
         body: const Center(child: Text('It works!')),
       ),
     );
