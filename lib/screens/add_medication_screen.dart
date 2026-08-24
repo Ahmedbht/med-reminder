@@ -36,7 +36,7 @@ class _AddMedicationScreenState extends State<AddMedicationScreen> {
   }
 
   void _save(){
-    if(_nameController.text.trim()isEmpty){
+    if(_nameController.text.trim().isEmpty){
       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
         content: Text('Please enter a medication name'),
       ));
@@ -45,7 +45,7 @@ class _AddMedicationScreenState extends State<AddMedicationScreen> {
 
   final timeString = _selectedTime.format(context);
 
-  Provider.of<MedicationProvider>(context, listen: false).addListener( name :_nameController.text.trim(),
+  Provider.of<MedicationProvider>(context, listen: false).addMedication( name :_nameController.text.trim(),
   dosage: _dosageController.text.trim(),
   form: _form,
   time :timeString,
@@ -53,4 +53,10 @@ class _AddMedicationScreenState extends State<AddMedicationScreen> {
 
   Navigator.pop(context);
   }
+@override
+Widget build(BuildContext context){
+  return Scaffold(
+    appBar: AppBar(title: const Text('Add Medication')),
+    body: Padding(padding:  ,))
+}
 }
