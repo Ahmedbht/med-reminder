@@ -48,7 +48,10 @@ class NotificationService {
       const NotificationDetails(
         android: AndroidNotificationDetails('med_channel', 'Medication Reminders'),
         iOS: DarwinNotificationDetails(),
-)
+      ),
+      androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle,
+      matchDateTimeComponents: DateTimeComponents.time,
+      );
     }
   }
-}id
+}
