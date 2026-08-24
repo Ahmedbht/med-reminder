@@ -54,9 +54,56 @@ class _AddMedicationScreenState extends State<AddMedicationScreen> {
   Navigator.pop(context);
   }
 @override
-Widget build(BuildContext context){
-  return Scaffold(
-    appBar: AppBar(title: const Text('Add Medication')),
-    body: Padding(padding:  ,))
-}
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: const Text('Add Medication')),
+      body: Padding(
+        padding: const EdgeInsets.all(20),
+        child: ListView(
+          children: [
+            TextField(
+              controller: _nameController,
+              decoration: const InputDecoration(labelText: 'Medication name'),
+            ),
+            const SizedBox(height: 12),
+            TextField(
+              controller: _dosageController,
+              decoration: const InputDecoration(labelText: 'Dosage (e.g. 500mg)'),
+            ),
+            const SizedBox(height: 12),
+            DropdownButtonFormField<String>(
+              initialValue: _form,
+              decoration: const InputDecoration(labelText: 'Form'),
+              items: _formOptions.map((f) {
+                return DropdownMenuItem(value: f, child: Text(f));
+              }).toList(),
+              onChanged: (value) {
+                setState(() {
+                  _form = value!;
+                });
+              },
+            ),
+            const SizedBox(height: 12),
+            ListTile(
+              contentPadding: EdgeInsets.zero,
+              title: const Text('Reminder time'),
+              subtitle: Text(_selectedTime.format(context)),
+              trailing: const Icon(Icons.access_time),
+              onTap: _pickTime,
+            ),
+            const SizedBox(height: 12),
+            TextField(
+              controller: _noteController,
+              decoration: const InputDecoration(labelText: 'Note (optional)'),
+            ),
+            const SizedBox(height: 24),
+            ElevatedButton(
+              onPressed: _save,
+              child: const Text('Save Medication'),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
 }
