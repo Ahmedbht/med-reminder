@@ -50,6 +50,15 @@ class _HomeScreenState extends State<Homescreen> {
                 );
               },
             ),
+            floatingActionButton: FloatingActionButton(
+              onPressed:(){
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const AddMedicationScreen()),
+                );
+              },
+              child: const Icon(Icons.add),
+            ),
     );
   }
 }
