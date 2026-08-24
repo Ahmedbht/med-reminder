@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../providers/medication_provider.dart';
+import 'add_medication_screen.dart';
 
 class Homescreen extends StatefulWidget {
   const Homescreen({super.key});
@@ -21,7 +22,6 @@ class _HomeScreenState extends State<Homescreen> {
   Widget build(BuildContext context) {
     final medProvider = Provider.of<MedicationProvider>(context);
 
-
     return Scaffold(
       appBar: AppBar(title: const Text('MediTrack')),
       body: medProvider.medications.isEmpty
@@ -35,7 +35,9 @@ class _HomeScreenState extends State<Homescreen> {
                   margin: const EdgeInsets.only(bottom: 12.0),
                   child: ListTile(
                     title: Text(med.name),
-                    subtitle: Text('${med.dosage} - ${med.form} at ${med.time}'),
+                    subtitle: Text(
+                      '${med.dosage} - ${med.form} at ${med.time}',
+                    ),
                     trailing: med.isTaken
                         ? const Icon(Icons.check_circle, color: Colors.green)
                         : ElevatedButton(
