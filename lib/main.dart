@@ -4,7 +4,11 @@ import 'providers/medication_provider.dart';
 import 'screens/home_screen.dart';
 import 'services/notification_service.dart';
 
-void main() {
+final notificationService = NotificationService();
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await notificationService.init();
   runApp(
     MultiProvider(
       providers: [ChangeNotifierProvider(create: (_) => MedicationProvider())],
