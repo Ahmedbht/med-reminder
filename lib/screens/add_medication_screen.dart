@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../providers/medication_provider.dart';
+import '../main.dart';
 
 class AddMedicationScreen extends StatefulWidget {
   const AddMedicationScreen({super.key});
@@ -35,25 +36,35 @@ class _AddMedicationScreenState extends State<AddMedicationScreen> {
     }
   }
 
-  void _save(){
-    if(_nameController.text.trim().isEmpty){
-      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-        content: Text('Please enter a medication name'),
-      ));
+  void _save() {
+    if (_nameController.text.trim().isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Please enter a medication name')),
+      );
       return;
     }
 
-  final timeString = _selectedTime.format(context);
+    final timeString = _selectedTime.format(context);
 
-  Provider.of<MedicationProvider>(context, listen: false).addMedication( name :_nameController.text.trim(),
-  dosage: _dosageController.text.trim(),
-  form: _form,
-  time :timeString,
-  note: _noteController.text.trim(),);
+    Provider.of<MedicationProvider>(context, listen: false).addMedication(
+      name: _nameController.text.trim(),
+      dosage: _dosageController.text.trim(),
+      form: _form,
+      time: timeString,
+      note: _noteController.text.trim(),
+    );
 
-  Navigator.pop(context);
+    notificationService.scheduleNotification(
+      id: DateTime.now().millisecondsSinceEpoch ~/ 1000,
+      title: 'time to take ${_nameController.text.trim()}',
+      body: '${_dosageController.text.trim()} - ${_form}',
+      hour: _selectedTime.hour,
+      minute: _selectedTime.minute,
+    );
+    Navigator.pop(context);
   }
-@override
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Add Medication')),
@@ -68,7 +79,9 @@ class _AddMedicationScreenState extends State<AddMedicationScreen> {
             const SizedBox(height: 12),
             TextField(
               controller: _dosageController,
-              decoration: const InputDecoration(labelText: 'Dosage (e.g. 500mg)'),
+              decoration: const InputDecoration(
+                labelText: 'Dosage (e.g. 500mg)',
+              ),
             ),
             const SizedBox(height: 12),
             DropdownButtonFormField<String>(
