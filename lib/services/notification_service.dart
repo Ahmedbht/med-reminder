@@ -17,8 +17,21 @@ class NotificationService {
     );
 
     await _plugin.initialize(settings);
+        await _plugin
+        .resolvePlatformSpecificImplementation<IOSFlutterLocalNotificationsPlugin>()
+        ?.requestPermissions(alert: true, badge: true, sound: true);
   }
-
+    Future<void> showTestNotification() async {
+    await _plugin.show(
+      0,
+      'Test Notification',
+      'If you see this, notifications work!',
+      const NotificationDetails(
+        android: AndroidNotificationDetails('med_channel', 'Medication Reminders'),
+        iOS: DarwinNotificationDetails(),
+      ),
+    );
+  }
   Future<void> scheduleNotification({
     required int id,
     required String title,

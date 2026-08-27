@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../providers/medication_provider.dart';
 import 'add_medication_screen.dart';
+import '../main.dart';
 
 class Homescreen extends StatefulWidget {
   const Homescreen({super.key});
@@ -26,7 +27,17 @@ class _HomeScreenState extends State<Homescreen> {
     final progress = total == 0 ? 0.0 : taken / total;
 
     return Scaffold(
-      appBar: AppBar(title: const Text('MediTrack')),
+            appBar: AppBar(
+        title: const Text('MediTrack'),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.notifications),
+            onPressed: () {
+              notificationService.showTestNotification();
+            },
+          ),
+        ],
+      ),
       body: Column(
         children: [
           Padding(
