@@ -44,6 +44,10 @@ class Medication {
       note: json['note'] ?? '',
       isTaken: json['isTaken'] ?? false,
       isMissed: json['isMissed'] ?? false,
+      history: json['history'] != null
+          ? List<Map<String ,dynamic>>.from(json['history'])
+          : [],
+
     );
   }
 }
