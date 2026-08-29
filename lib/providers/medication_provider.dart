@@ -54,6 +54,12 @@ class MedicationProvider extends ChangeNotifier {
     final med = medications.firstWhere((m) => m.id == id);
     med.isTaken = true;
     med.isMissed = false;
+    final today = DateTime.now();
+    final dateString =
+        '${today.year}-${today.month.toString().padLeft(2, '0')}-${today.day.toString().padLeft(2, '0')}';
+
+    med.history.removeWhere((entry) => entry['date'] == dateString);
+    med.history.add({'date': dateString, 'status': 'taken'});
     await saveMedications();
     notifyListeners();
   }

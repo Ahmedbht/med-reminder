@@ -31,6 +31,7 @@ class Medication {
       'note': note,
       'isTaken': isTaken,
       'isMissed': isMissed,
+      'history' :history,
     };
   }
 
