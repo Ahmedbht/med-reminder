@@ -64,6 +64,12 @@ class MedicationProvider extends ChangeNotifier {
     notifyListeners();
   }
 
+  List<Map<String, dynamic>> getStatusForDate(DateTime date) {
+    final dateString =
+        '${date.year}-${date.month.toString().padLeft(2, '0')}-${date.day.toString().padLeft(2, '0')}';
+        
+  }
+
   // remove from list
   Future<void> deleteMedication(String id) async {
     medications.removeWhere((m) => m.id == id);
