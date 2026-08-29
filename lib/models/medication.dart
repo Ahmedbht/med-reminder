@@ -7,6 +7,7 @@ class Medication {
   String note; // e.g. "Take with water", "After breakfast"
   bool isTaken;
   bool isMissed;
+  List<Map<String, dynamic>> history;
 
   Medication({
     required this.id,
@@ -17,7 +18,8 @@ class Medication {
     this.note = '',
     this.isTaken = false,
     this.isMissed = false,
-  });
+    List<Map<String, dynamic>>? history,
+  }) : history = history ?? [];
 
   Map<String, dynamic> toJson() {
     return {
