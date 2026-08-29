@@ -67,7 +67,18 @@ class MedicationProvider extends ChangeNotifier {
   List<Map<String, dynamic>> getStatusForDate(DateTime date) {
     final dateString =
         '${date.year}-${date.month.toString().padLeft(2, '0')}-${date.day.toString().padLeft(2, '0')}';
-        
+    List<Map<String, dynamic>> results = [];
+
+    for (final med in medications) {
+      final entry = med.history.firstWhere(
+        (h) => h['date'] == dateString,
+        orElse: () => {},
+      );
+      if (entry.isNotEmpty) {
+        results.add({'name': med.name, 'status': entry['status']});
+      }
+    }
+    return results;
   }
 
   // remove from list
