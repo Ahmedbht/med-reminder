@@ -37,5 +37,24 @@ class RootScreen extends StatefulWidget {
 class _RootScreenStat extends State<RootScreen> {
   int _currenIndex = 0;
 
-  
+  final List<Widget> _screens = const [Homescreen(), HistoryScreen()];
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: _screens[_currentIndex],
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _currenIndex,
+        onTap: (index) {
+          setState(() {
+            _currenIndex = index;
+          });
+        },
+        items: const [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+          BottomNavigationBarItem(icon: Icon(Icons.history), label: 'History'),
+        ],
+      ),
+    );
+  }
 }
