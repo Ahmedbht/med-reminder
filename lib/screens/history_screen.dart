@@ -10,4 +10,14 @@ class HistoryScreen extends StatefulWidget {
   State<HistoryScreen> createState() => _HistoryScreenState();
 }
 
+class _HistoryScreenState extends State<HistoryScreen> {
+  DateTime _focusedDay = DateTime.now();
+  DateTime? _selectedDay;
 
+  @override
+  Widget build(BuildContext context) {
+    final medProvider = Provider.of<MedicationProvider>(context);
+
+    final 
+  }
+}
