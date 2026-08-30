@@ -30,11 +30,11 @@ class MyApp extends StatelessWidget {
 class RootScreen extends StatefulWidget {
   const RootScreen({super.key});
 
-  @overrida
+  @override
   State<RootScreen> createState() => _RootScreenState();
 }
 
-class _RootScreenStat extends State<RootScreen> {
+class _RootScreenState extends State<RootScreen> {
   int _currenIndex = 0;
 
   final List<Widget> _screens = const [Homescreen(), HistoryScreen()];
