@@ -86,17 +86,18 @@ class _HomeScreenState extends State<Homescreen> {
                           shape: const RoundedRectangleBorder(
                             borderRadius: BorderRadius.horizontal(right: Radius.circular(8)),
                           ),
-                          child: ListTile(
-                            title: Text(med.name),
-                            subtitle: Text('${med.dosage} - ${med.form} at ${med.time}'),
-                            trailing: med.isTaken
-                                ? const Icon(Icons.check_circle, color: Colors.green)
-                                : ElevatedButton(
-                                    onPressed: () {
-                                      medProvider.markAsTaken(med.id);
-                                    },
-                                    child: const Text('Mark as Taken'),
-                                  ),
+                          child: Padding(
+                            padding: const EdgeInsets.all(12),
+                            child: Row(
+                              children:[
+                                CircleAvatar(
+                                  backgroundColor: Colors.teal[50],
+                                  child: const Icon(Icons.medication, color: Colors.teal),
+                                ),
+                                
+
+                              ]
+                            ),
                           ),
                         ),
                       );
