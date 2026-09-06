@@ -107,14 +107,21 @@ class _HomeScreenState extends State<Homescreen> {
                                     ],
                                   ),
                                 ),
-                                
+                                med.isTaken
+                                    ? const Icon(Icons.check_circle, color: Colors.green , size: 28,)
+                                    : ElevatedButton(onPressed: (){
+                                      medProvider.markAsTaken(med.id);
+                                    },
+                                    style: ElevatedButton.styleFrom(
+                                      padding: const EdgeInsets.symmetric(horizontal: 12),
+          
+                                    ),
+                                    child : const Text('Taken', style: TextStyle(fontSize: 12)),
+                                    ),
+                              ],
                         ),
-                      );
-                    },
-                  ),
-          ),
-        ],
-      ),
+                          ),
+      
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.push(
