@@ -27,17 +27,8 @@ class _HomeScreenState extends State<Homescreen> {
     final progress = total == 0 ? 0.0 : taken / total;
 
     return Scaffold(
-            appBar: AppBar(
-        title: const Text('MediTrack'),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.notifications),
-            onPressed: () {
-              notificationService.showTestNotification();
-            },
-          ),
-        ],
-      ),
+            
+      
       body: Column(
         children: [
           Padding(
