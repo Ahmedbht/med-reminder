@@ -94,11 +94,20 @@ class _HomeScreenState extends State<Homescreen> {
                                   backgroundColor: Colors.teal[50],
                                   child: const Icon(Icons.medication, color: Colors.teal),
                                 ),
+                                const SizedBox(width: 12),
+                                Expanded(child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(med.name, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),),
+                                    const SizedBox(height: 4),
+                                      Text(
+                                        '${med.dosage} • ${med.form} • ${med.time}',
+                                        style: TextStyle(color: Colors.grey[600], fontSize: 13),
+                                   ),
+                                    ],
+                                  ),
+                                ),
                                 
-
-                              ]
-                            ),
-                          ),
                         ),
                       );
                     },
