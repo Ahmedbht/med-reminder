@@ -23,7 +23,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(title: 'MediTrack', home: const RootScreen());
+    return MaterialApp(
+      title: 'MediTrack',
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.teal),
+        useMaterial3: true,
+      ),
+      home: const RootScreen(),
+    );
   }
 }
 
