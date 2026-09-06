@@ -26,7 +26,7 @@ class _HomeScreenState extends State<Homescreen> {
     final progress = total == 0 ? 0.0 : taken / total;
 
     return Scaffold(
-            appBar: AppBar(title: const Text('MediTrack')),
+      appBar: AppBar(title: const Text('MediTrack')),
       body: Column(
         children: [
           Padding(
@@ -89,39 +89,49 @@ class _HomeScreenState extends State<Homescreen> {
                           child: Padding(
                             padding: const EdgeInsets.all(12),
                             child: Row(
-                              children:[
+                              children: [
                                 CircleAvatar(
                                   backgroundColor: Colors.teal[50],
                                   child: const Icon(Icons.medication, color: Colors.teal),
                                 ),
                                 const SizedBox(width: 12),
-                                Expanded(child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(med.name, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),),
-                                    const SizedBox(height: 4),
+                                Expanded(
+                                  child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        med.name,
+                                        style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                                      ),
+                                      const SizedBox(height: 4),
                                       Text(
                                         '${med.dosage} • ${med.form} • ${med.time}',
                                         style: TextStyle(color: Colors.grey[600], fontSize: 13),
-                                   ),
+                                      ),
                                     ],
                                   ),
                                 ),
                                 med.isTaken
-                                    ? const Icon(Icons.check_circle, color: Colors.green , size: 28,)
-                                    : ElevatedButton(onPressed: (){
-                                      medProvider.markAsTaken(med.id);
-                                    },
-                                    style: ElevatedButton.styleFrom(
-                                      padding: const EdgeInsets.symmetric(horizontal: 12),
-          
-                                    ),
-                                    child : const Text('Taken', style: TextStyle(fontSize: 12)),
-                                    ),
+                                    ? const Icon(Icons.check_circle, color: Colors.green, size: 28)
+                                    : ElevatedButton(
+                                        onPressed: () {
+                                          medProvider.markAsTaken(med.id);
+                                        },
+                                        style: ElevatedButton.styleFrom(
+                                          padding: const EdgeInsets.symmetric(horizontal: 12),
+                                        ),
+                                        child: const Text('Taken', style: TextStyle(fontSize: 12)),
+                                      ),
                               ],
-                        ),
-                          ),
-      
+                              ),
+              ),
+                      ),
+                      );
+                       },
+                  ),
+          ),
+        ],
+      ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.push(
