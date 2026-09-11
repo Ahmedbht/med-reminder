@@ -29,38 +29,45 @@ class _HomeScreenState extends State<Homescreen> {
       appBar: AppBar(title: const Text('MediTrack')),
       body: Column(
         children: [
+                    Padding(
+            padding: const EdgeInsets.fromLTRB(20, 20, 20, 8),
+            child: Text(
+              'Good day 👋',
+              style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+            ),
+          ),
           Padding(
-            padding: const EdgeInsets.all(16),
-            child: Card(
-              color: Colors.blue[50],
-              child: Padding(
-                padding: const EdgeInsets.all(16),
-                child: Row(
-                  children: [
-                    SizedBox(
-                      width: 60,
-                      height: 60,
-                      child: Stack(
-                        alignment: Alignment.center,
-                        children: [
-                          CircularProgressIndicator(
-                            value: progress,
-                            strokeWidth: 6,
-                            backgroundColor: Colors.blue[100],
-                          ),
-                          Text('${(progress * 100).round()}%'),
-                        ],
-                      ),
-                    ),
-                    const SizedBox(width: 16),
-                    Expanded(
-                      child: Text('$taken of $total doses taken today'),
-                    ),
-                  ],
+            padding: const EdgeInsets.fromLTRB(20, 0, 20, 16),
+            child: Text(
+              total == 0 ? 'Add your first medication' : 'Keep up the great work!',
+              style: TextStyle(color: Colors.grey[600]),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Container(
+              padding: const EdgeInsets.all(20),
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [Colors.indigo[400]!, Colors.indigo[700]!],
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
                 ),
+                borderRadius: BorderRadius.circular(20),
+              ),
+              
+                  const SizedBox(width: 16),
+                  Expanded(
+                    child: Text(
+                      '$taken of $total doses taken today',
+                      style: const TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.w500),
+                    ),
+                  ),
+                ],
               ),
             ),
           ),
+          const SizedBox(height: 16),
           Expanded(
             child: medProvider.medications.isEmpty
                 ? const Center(child: Text('No medications added yet.'))
