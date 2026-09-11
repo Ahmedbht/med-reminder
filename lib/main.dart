@@ -28,18 +28,18 @@ class MyApp extends StatelessWidget {
       theme : ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.indigo),
         useMaterial3: true,
-        cardTheme: cardThemeData(
+        cardTheme: CardThemeData(
           elevation:0,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16),
           ),
+        ),
           elevatedButtonTheme: ElevatedButtonThemeData(
             style: ElevatedButton.styleFrom(
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
             ),
           ),
         ),
-      ),
       home: const RootScreen(),
     );
   }
