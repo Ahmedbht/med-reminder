@@ -55,7 +55,27 @@ class _HomeScreenState extends State<Homescreen> {
                 ),
                 borderRadius: BorderRadius.circular(20),
               ),
-              
+              child: Row(
+                children: [
+                  SizedBox(
+                    width: 64,
+                    height: 64,
+                    child: Stack(
+                      alignment: Alignment.center,
+                      children: [
+                        CircularProgressIndicator(
+                          value: progress,
+                          strokeWidth: 6,
+                          backgroundColor: Colors.white24,
+                          valueColor: const AlwaysStoppedAnimation(Colors.white),
+                        ),
+                        Text(
+                          '${(progress * 100).round()}%',
+                          style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                        ),
+                      ],
+                    ),
+                  ),
                   const SizedBox(width: 16),
                   Expanded(
                     child: Text(
