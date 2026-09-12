@@ -29,6 +29,10 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.indigo),
         useMaterial3: true,
         scaffoldBackgroundColor: const Color(0xFFF5F6FA),
+        appBarTheme: const AppBarTheme(
+        elevation: 0,
+        backgroundColor: Colors.transparent,
+        foregroundColor: Colors.black87,),
         cardTheme: CardThemeData(
           elevation:0,
           shape: RoundedRectangleBorder(
