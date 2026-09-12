@@ -109,9 +109,11 @@ class _HomeScreenState extends State<Homescreen> {
                           borderRadius: BorderRadius.circular(8),
                         ),
                         child: Card(
-                          margin: EdgeInsets.zero,
-                          shape: const RoundedRectangleBorder(
-                            borderRadius: BorderRadius.horizontal(right: Radius.circular(8)),
+                        margin: EdgeInsets.zero,
+                          elevation: 2,
+                          shadowColor: Colors.black26,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(16),
                           ),
                           child: Padding(
                             padding: const EdgeInsets.all(12),
