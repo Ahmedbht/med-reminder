@@ -161,14 +161,16 @@ class _HomeScreenState extends State<Homescreen> {
           ),
         ],
       ),
-      floatingActionButton: FloatingActionButton(
+      floatingActionButton: FloatingActionButton.extended(
         onPressed: () {
           Navigator.push(
             context,
             MaterialPageRoute(builder: (context) => const AddMedicationScreen()),
           );
         },
-        child: const Icon(Icons.add),
+        icon: const Icon(Icons.add),
+        label: const Text('Add Medication'),
+        backgroundColor: Colors.indigo,
       ),
     );
   }
