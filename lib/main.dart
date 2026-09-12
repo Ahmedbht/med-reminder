@@ -28,11 +28,14 @@ class MyApp extends StatelessWidget {
       theme : ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.indigo),
         useMaterial3: true,
+        scaffoldBackgroundColor: const Color(0xFFF5F6FA),
         cardTheme: CardThemeData(
           elevation:0,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16),
+        
           ),
+          
         ),
           elevatedButtonTheme: ElevatedButtonThemeData(
             style: ElevatedButton.styleFrom(
