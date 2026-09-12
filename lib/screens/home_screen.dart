@@ -91,8 +91,8 @@ class _HomeScreenState extends State<Homescreen> {
           Expanded(
             child: medProvider.medications.isEmpty
                 ? const Center(child: Text('No medications added yet.'))
-                : ListView.builder(
-                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                  : ListView.builder(
+                    padding: const EdgeInsets.fromLTRB(16, 8, 16, 100),
                     itemCount: medProvider.medications.length,
                     itemBuilder: (context, index) {
                       final med = medProvider.medications[index];
