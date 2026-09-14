@@ -141,7 +141,7 @@ class _HomeScreenState extends State<Homescreen> {
                                   ),
                                 ),
                                 med.isTaken
-                                    ? const Icon(Icons.check_circle, color: Colors.green, size: 28)
+                                    ? const Icon(Icons.check_circle, color: Colors.green, size: 24)
                                     : ElevatedButton(
                                         onPressed: () {
                                           medProvider.markAsTaken(med.id);
