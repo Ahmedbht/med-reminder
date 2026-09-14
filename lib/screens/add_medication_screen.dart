@@ -72,9 +72,12 @@ class _AddMedicationScreenState extends State<AddMedicationScreen> {
         padding: const EdgeInsets.all(20),
         child: ListView(
           children: [
-            TextField(
+             TextField(
               controller: _nameController,
-              decoration: const InputDecoration(labelText: 'Medication name'),
+              decoration: InputDecoration(
+                labelText: 'Medication name',
+                border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
+              ),
             ),
             const SizedBox(height: 12),
             TextField(
