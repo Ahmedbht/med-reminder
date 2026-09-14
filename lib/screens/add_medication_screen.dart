@@ -110,7 +110,10 @@ class _AddMedicationScreenState extends State<AddMedicationScreen> {
             const SizedBox(height: 12),
             TextField(
               controller: _noteController,
-              decoration: const InputDecoration(labelText: 'Note (optional)'),
+              decoration: InputDecoration(
+                labelText: 'Note (optional)',
+                border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
+              ),
             ),
             const SizedBox(height: 24),
             ElevatedButton(
