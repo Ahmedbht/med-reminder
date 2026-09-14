@@ -47,7 +47,12 @@ class MyApp extends StatelessWidget {
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
             ),
           ),
-        ),
+       bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+        backgroundColor: Colors.white,
+        selectedItemColor: Colors.indigo,
+        unselectedItemColor: Colors.grey,
+      ),
+       ),
       home: const RootScreen(),
     );
   }
