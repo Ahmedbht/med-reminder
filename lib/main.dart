@@ -31,6 +31,7 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: const Color(0xFFF5F6FA),
         appBarTheme: const AppBarTheme(
         elevation: 0,
+        surfaceTintColor: Colors.transparent,
         backgroundColor: Colors.transparent,
         foregroundColor: Colors.black87,),
         cardTheme: CardThemeData(
