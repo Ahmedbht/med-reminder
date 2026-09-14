@@ -118,6 +118,7 @@ class _AddMedicationScreenState extends State<AddMedicationScreen> {
             const SizedBox(height: 24),
             ElevatedButton(
               onPressed: _save,
+              style: ElevatedButton.styleFrom(padding: const EdgeInsets.symmetric(vertical: 16)),
               child: const Text('Save Medication'),
             ),
           ],
