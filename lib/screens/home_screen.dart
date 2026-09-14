@@ -162,6 +162,7 @@ class _HomeScreenState extends State<Homescreen> {
         ],
       ),
       floatingActionButton: FloatingActionButton.extended(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
         onPressed: () {
           Navigator.push(
             context,
