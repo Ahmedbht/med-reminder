@@ -3,7 +3,7 @@ import 'package:http/http.dart' as http;
 import '../config/api_config.dart';
 
 class AiService {
-  static const String_baseUrl =
+  static const String _baseUrl =
       'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent';
 
   Future<String> getMedicationInfo(String medicationName) async {
@@ -24,14 +24,13 @@ class AiService {
         ],
       }),
     );
-    if (response.statysCode == 200) {
+
+    if (response.statusCode == 200) {
       final data = jsonDecode(response.body);
-      final text = data['condidates'][0]['content']['parts'][0]['text'];
+      final text = data['candidates'][0]['content']['parts'][0]['text'];
       return text;
-    }
-    else
-    {
-      throw Exception('Failed to get medication info: $response.statusCode');
+    } else {
+      throw Exception('Failed to get medication info: ${response.statusCode}');
     }
   }
 }
