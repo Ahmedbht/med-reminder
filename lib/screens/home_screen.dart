@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../providers/medication_provider.dart';
 import 'add_medication_screen.dart';
+import 'medication_info_screen.dart';
 
 class Homescreen extends StatefulWidget {
   const Homescreen({super.key});
@@ -151,6 +152,17 @@ class _HomeScreenState extends State<Homescreen> {
                                         ),
                                         child: const Text('Taken', style: TextStyle(fontSize: 12)),
                                       ),
+                                                                   IconButton(
+                                  icon: const Icon(Icons.info_outline, color: Colors.indigo),
+                                  onPressed: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => MedicationInfoScreen(medicationName: med.name),
+                                      ),
+                                    );
+                                  },
+                                ),   
                               ],
                               ),
               ),
