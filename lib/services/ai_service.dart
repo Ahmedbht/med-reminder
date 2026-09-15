@@ -24,6 +24,14 @@ class AiService {
         ],
       }),
     );
-    
+    if (response.statysCode == 200) {
+      final data = jsonDecode(response.body);
+      final text = data['condidates'][0]['content']['parts'][0]['text'];
+      return text;
+    }
+    else
+    {
+      throw Exception('Failed to get medication info: $response.statusCode');
+    }
   }
 }
