@@ -33,7 +33,7 @@ class _HomeScreenState extends State<Homescreen> {
                     Padding(
             padding: const EdgeInsets.fromLTRB(20, 20, 20, 8),
             child: Text(
-              'Good day 👋',
+              'Good day, Stay healthy and be Strong! ',
               style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
             ),
           ),
