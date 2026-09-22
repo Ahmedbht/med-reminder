@@ -23,7 +23,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
         : <Map<String, dynamic>>[];
 
     return Scaffold(
-      appBar: AppBar(title: const Text('History')),
+      appBar: AppBar(title: const Text('My History')),
       body: Column(
         children: [
           TableCalendar(
