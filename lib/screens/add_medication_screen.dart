@@ -67,7 +67,7 @@ class _AddMedicationScreenState extends State<AddMedicationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Add Medication')),
+      appBar: AppBar(title: const Text('New Medication? Add it here!')),
       body: Padding(
         padding: const EdgeInsets.all(20),
         child: ListView(
