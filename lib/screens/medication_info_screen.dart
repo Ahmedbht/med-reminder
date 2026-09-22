@@ -50,7 +50,7 @@ class _MedicationInfoScreenState extends State<MedicationInfoScreen> {
                 : SingleChildScrollView(
                     child: Text(
                       _info ?? '',
-                      style: const TextStyle(fontSize: 16, height: 1.5),
+                      style: const TextStyle(fontSize: 16, height: 1.5, color : Colors.black87),
                     ),
                   ),
       ),
