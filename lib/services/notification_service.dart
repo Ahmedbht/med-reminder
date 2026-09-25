@@ -45,6 +45,7 @@ class NotificationService {
       ),
     );
   }
+
   Future<void> scheduleNotification({
     required int id,
     required String title,
