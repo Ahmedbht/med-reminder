@@ -1,9 +1,6 @@
-# med_reminder
+# MediTrack (med_reminder)
 
-<!-- test commit 2 -->
-
-
-A new Flutter project.
+A Flutter app for tracking medications and getting reminder notifications.
 
 ## Getting Started
 
