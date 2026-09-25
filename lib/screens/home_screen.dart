@@ -15,6 +15,7 @@ class _HomeScreenState extends State<Homescreen> {
   void initState() {
     super.initState();
     Future.microtask(() {
+      if (!mounted) return;
       Provider.of<MedicationProvider>(context, listen: false).loadMedications();
     });
   }
@@ -30,7 +31,7 @@ class _HomeScreenState extends State<Homescreen> {
       appBar: AppBar(title: const Text('MediTrack')),
       body: Column(
         children: [
-                    Padding(
+          Padding(
             padding: const EdgeInsets.fromLTRB(20, 20, 20, 8),
             child: Text(
               'Good day, Stay healthy and be Strong! ',
@@ -40,7 +41,9 @@ class _HomeScreenState extends State<Homescreen> {
           Padding(
             padding: const EdgeInsets.fromLTRB(20, 0, 20, 16),
             child: Text(
-              total == 0 ? 'Add your first medication' : 'Keep up the great work!',
+              total == 0
+                  ? 'Add your first medication'
+                  : 'Keep up the great work!',
               style: TextStyle(color: Colors.grey[600]),
             ),
           ),
@@ -68,11 +71,16 @@ class _HomeScreenState extends State<Homescreen> {
                           value: progress,
                           strokeWidth: 6,
                           backgroundColor: Colors.white24,
-                          valueColor: const AlwaysStoppedAnimation(Colors.white),
+                          valueColor: const AlwaysStoppedAnimation(
+                            Colors.white,
+                          ),
                         ),
                         Text(
                           '${(progress * 100).round()}%',
-                          style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ],
                     ),
@@ -81,7 +89,11 @@ class _HomeScreenState extends State<Homescreen> {
                   Expanded(
                     child: Text(
                       '$taken of $total doses taken today',
-                      style: const TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.w500),
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 16,
+                        fontWeight: FontWeight.w500,
+                      ),
                     ),
                   ),
                 ],
@@ -92,7 +104,7 @@ class _HomeScreenState extends State<Homescreen> {
           Expanded(
             child: medProvider.medications.isEmpty
                 ? const Center(child: Text('No medications added yet.'))
-                  : ListView.builder(
+                : ListView.builder(
                     padding: const EdgeInsets.fromLTRB(16, 8, 16, 100),
                     itemCount: medProvider.medications.length,
                     itemBuilder: (context, index) {
@@ -100,17 +112,19 @@ class _HomeScreenState extends State<Homescreen> {
                       final borderColor = med.isTaken
                           ? Colors.green
                           : med.isMissed
-                              ? Colors.red
-                              : Colors.blue;
+                          ? Colors.red
+                          : Colors.blue;
 
                       return Container(
                         margin: const EdgeInsets.only(bottom: 12),
                         decoration: BoxDecoration(
-                          border: Border(left: BorderSide(color: borderColor, width: 4)),
+                          border: Border(
+                            left: BorderSide(color: borderColor, width: 4),
+                          ),
                           borderRadius: BorderRadius.circular(8),
                         ),
                         child: Card(
-                        margin: EdgeInsets.zero,
+                          margin: EdgeInsets.zero,
                           elevation: 2,
                           shadowColor: Colors.black26,
                           shape: RoundedRectangleBorder(
@@ -122,53 +136,78 @@ class _HomeScreenState extends State<Homescreen> {
                               children: [
                                 CircleAvatar(
                                   backgroundColor: Colors.teal[50],
-                                  child: const Icon(Icons.medication, color: Colors.teal),
+                                  child: const Icon(
+                                    Icons.medication,
+                                    color: Colors.teal,
+                                  ),
                                 ),
                                 const SizedBox(width: 12),
                                 Expanded(
                                   child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: [
                                       Text(
                                         med.name,
-                                        style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                                        style: const TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 16,
+                                        ),
                                       ),
                                       const SizedBox(height: 4),
                                       Text(
                                         '${med.dosage} • ${med.form} • ${med.time}',
-                                        style: TextStyle(color: Colors.grey[600], fontSize: 13),
+                                        style: TextStyle(
+                                          color: Colors.grey[600],
+                                          fontSize: 13,
+                                        ),
                                       ),
                                     ],
                                   ),
                                 ),
                                 med.isTaken
-                                    ? const Icon(Icons.check_circle, color: Colors.green, size: 24)
+                                    ? const Icon(
+                                        Icons.check_circle,
+                                        color: Colors.green,
+                                        size: 24,
+                                      )
                                     : ElevatedButton(
                                         onPressed: () {
                                           medProvider.markAsTaken(med.id);
                                         },
                                         style: ElevatedButton.styleFrom(
-                                          padding: const EdgeInsets.symmetric(horizontal: 12),
+                                          padding: const EdgeInsets.symmetric(
+                                            horizontal: 12,
+                                          ),
                                         ),
-                                        child: const Text('Taken', style: TextStyle(fontSize: 12)),
+                                        child: const Text(
+                                          'Taken',
+                                          style: TextStyle(fontSize: 12),
+                                        ),
                                       ),
-                                                                   IconButton(
-                                  icon: const Icon(Icons.info_outline, color: Colors.indigo),
+                                IconButton(
+                                  icon: const Icon(
+                                    Icons.info_outline,
+                                    color: Colors.indigo,
+                                  ),
                                   onPressed: () {
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                        builder: (context) => MedicationInfoScreen(medicationName: med.name),
+                                        builder: (context) =>
+                                            MedicationInfoScreen(
+                                              medicationName: med.name,
+                                            ),
                                       ),
                                     );
                                   },
-                                ),   
+                                ),
                               ],
-                              ),
-              ),
-                      ),
+                            ),
+                          ),
+                        ),
                       );
-                       },
+                    },
                   ),
           ),
         ],
@@ -178,7 +217,9 @@ class _HomeScreenState extends State<Homescreen> {
         onPressed: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => const AddMedicationScreen()),
+            MaterialPageRoute(
+              builder: (context) => const AddMedicationScreen(),
+            ),
           );
         },
         icon: const Icon(Icons.add),
