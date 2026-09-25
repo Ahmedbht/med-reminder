@@ -31,7 +31,7 @@ class Medication {
       'note': note,
       'isTaken': isTaken,
       'isMissed': isMissed,
-      'history' :history,
+      'history': history,
     };
   }
 
@@ -46,9 +46,8 @@ class Medication {
       isTaken: json['isTaken'] ?? false,
       isMissed: json['isMissed'] ?? false,
       history: json['history'] != null
-          ? List<Map<String ,dynamic>>.from(json['history'])
+          ? List<Map<String, dynamic>>.from(json['history'])
           : [],
-
     );
   }
 }
