@@ -29,7 +29,8 @@ class NotificationService {
     await androidPlugin?.requestNotificationsPermission();
     await androidPlugin?.requestExactAlarmsPermission();
   }
-    Future<void> showTestNotification() async {
+
+  Future<void> showTestNotification() async {
     await _plugin.show(
       0,
       'Test Notification',
