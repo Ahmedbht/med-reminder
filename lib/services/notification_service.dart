@@ -4,14 +4,17 @@ import 'package:timezone/timezone.dart' as tz;
 import 'package:timezone/data/latest.dart' as tz;
 
 class NotificationService {
-  final FlutterLocalNotificationsPlugin _plugin = FlutterLocalNotificationsPlugin();
+  final FlutterLocalNotificationsPlugin _plugin =
+      FlutterLocalNotificationsPlugin();
 
   Future<void> init() async {
     tz.initializeTimeZones();
     final deviceTimeZone = await FlutterTimezone.getLocalTimezone();
     tz.setLocalLocation(tz.getLocation(deviceTimeZone.identifier));
 
-    const androidSettings = AndroidInitializationSettings('@mipmap/ic_launcher');
+    const androidSettings = AndroidInitializationSettings(
+      '@mipmap/ic_launcher',
+    );
     const iosSettings = DarwinInitializationSettings();
 
     const settings = InitializationSettings(
@@ -21,11 +24,15 @@ class NotificationService {
 
     await _plugin.initialize(settings);
     await _plugin
-        .resolvePlatformSpecificImplementation<IOSFlutterLocalNotificationsPlugin>()
+        .resolvePlatformSpecificImplementation<
+          IOSFlutterLocalNotificationsPlugin
+        >()
         ?.requestPermissions(alert: true, badge: true, sound: true);
 
     final androidPlugin = _plugin
-        .resolvePlatformSpecificImplementation<AndroidFlutterLocalNotificationsPlugin>();
+        .resolvePlatformSpecificImplementation<
+          AndroidFlutterLocalNotificationsPlugin
+        >();
     await androidPlugin?.requestNotificationsPermission();
     await androidPlugin?.requestExactAlarmsPermission();
   }
@@ -36,7 +43,10 @@ class NotificationService {
       'Test Notification',
       'If you see this, notifications work!',
       const NotificationDetails(
-        android: AndroidNotificationDetails('med_channel', 'Medication Reminders'),
+        android: AndroidNotificationDetails(
+          'med_channel',
+          'Medication Reminders',
+        ),
         iOS: DarwinNotificationDetails(
           presentAlert: true,
           presentBadge: true,
@@ -54,7 +64,14 @@ class NotificationService {
     required int minute,
   }) async {
     final now = tz.TZDateTime.now(tz.local);
-    var scheduledDate = tz.TZDateTime(tz.local, now.year, now.month, now.day, hour, minute);
+    var scheduledDate = tz.TZDateTime(
+      tz.local,
+      now.year,
+      now.month,
+      now.day,
+      hour,
+      minute,
+    );
 
     if (scheduledDate.isBefore(now)) {
       scheduledDate = scheduledDate.add(const Duration(days: 1));
@@ -66,7 +83,10 @@ class NotificationService {
       body,
       scheduledDate,
       const NotificationDetails(
-        android: AndroidNotificationDetails('med_channel', 'Medication Reminders'),
+        android: AndroidNotificationDetails(
+          'med_channel',
+          'Medication Reminders',
+        ),
         iOS: DarwinNotificationDetails(
           presentAlert: true,
           presentBadge: true,
@@ -74,7 +94,8 @@ class NotificationService {
         ),
       ),
       androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle,
-      uiLocalNotificationDateInterpretation: UILocalNotificationDateInterpretation.absoluteTime,
+      uiLocalNotificationDateInterpretation:
+          UILocalNotificationDateInterpretation.absoluteTime,
       matchDateTimeComponents: DateTimeComponents.time,
     );
   }
