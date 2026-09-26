@@ -46,13 +46,17 @@ class _MedicationInfoScreenState extends State<MedicationInfoScreen> {
         child: _isLoading
             ? const Center(child: CircularProgressIndicator())
             : _error != null
-                ? Center(child: Text('Error: $_error'))
-                : SingleChildScrollView(
-                    child: Text(
-                      _info ?? '',
-                      style: const TextStyle(fontSize: 16, height: 1.5, color : Colors.black87),
-                    ),
+            ? Center(child: Text('Error: $_error'))
+            : SingleChildScrollView(
+                child: Text(
+                  _info ?? '',
+                  style: const TextStyle(
+                    fontSize: 16,
+                    height: 1.5,
+                    color: Colors.black87,
                   ),
+                ),
+              ),
       ),
     );
   }
