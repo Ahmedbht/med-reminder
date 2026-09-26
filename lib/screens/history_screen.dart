@@ -43,21 +43,25 @@ class _HistoryScreenState extends State<HistoryScreen> {
             child: _selectedDay == null
                 ? const Center(child: Text('Select a date to see history'))
                 : selectedResults.isEmpty
-                    ? const Center(child: Text('No records for this day'))
-                    : ListView.builder(
-                        itemCount: selectedResults.length,
-                        itemBuilder: (context, index) {
-                          final entry = selectedResults[index];
-                          return ListTile(
-                            leading: Icon(
-                              entry['status'] == 'taken' ? Icons.check_circle : Icons.cancel,
-                              color: entry['status'] == 'taken' ? Colors.green : Colors.red,
-                            ),
-                            title: Text(entry['name']),
-                            subtitle: Text(entry['status']),
-                          );
-                        },
-                      ),
+                ? const Center(child: Text('No records for this day'))
+                : ListView.builder(
+                    itemCount: selectedResults.length,
+                    itemBuilder: (context, index) {
+                      final entry = selectedResults[index];
+                      return ListTile(
+                        leading: Icon(
+                          entry['status'] == 'taken'
+                              ? Icons.check_circle
+                              : Icons.cancel,
+                          color: entry['status'] == 'taken'
+                              ? Colors.green
+                              : Colors.red,
+                        ),
+                        title: Text(entry['name']),
+                        subtitle: Text(entry['status']),
+                      );
+                    },
+                  ),
           ),
         ],
       ),
