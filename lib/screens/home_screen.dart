@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import '../main.dart';
 import '../providers/medication_provider.dart';
 import 'add_medication_screen.dart';
 import 'medication_info_screen.dart';
@@ -28,7 +29,20 @@ class _HomeScreenState extends State<Homescreen> {
     final progress = total == 0 ? 0.0 : taken / total;
 
     return Scaffold(
-      appBar: AppBar(title: const Text('MediTrack')),
+      appBar: AppBar(
+        title: const Text('MediTrack'),
+        actions: [
+          PopupMenuButton<Locale>(
+            icon: const Icon(Icons.language),
+            onSelected: (locale) => localeNotifier.value = locale,
+            itemBuilder: (context) => const [
+              PopupMenuItem(value: Locale('en'), child: Text('English')),
+              PopupMenuItem(value: Locale('ar'), child: Text('العربية')),
+              PopupMenuItem(value: Locale('fr'), child: Text('Français')),
+            ],
+          ),
+        ],
+      ),
       body: Column(
         children: [
           Padding(
