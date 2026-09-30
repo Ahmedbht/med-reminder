@@ -1,0 +1,7 @@
+{
+  "appTitle": "MediTrack",
+  "addMedication": "Ajouter un médicament",
+  "medicationName": "Nom du médicament",
+  "dosage": "Dosage (ex: 500mg)",
+  "saveMedication": "Enregistrer"
+}
