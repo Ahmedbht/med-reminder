@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
 import 'providers/medication_provider.dart';
 import 'screens/home_screen.dart';
@@ -6,6 +8,9 @@ import 'services/notification_service.dart';
 import 'screens/history_screen.dart';
 
 final notificationService = NotificationService();
+
+/// Holds the app's current language; change it to switch language at runtime.
+final ValueNotifier<Locale> localeNotifier = ValueNotifier(const Locale('en'));
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -23,9 +28,20 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'MediTrack',
-      theme: ThemeData(
+    return ValueListenableBuilder<Locale>(
+      valueListenable: localeNotifier,
+      builder: (context, locale, _) {
+        return MaterialApp(
+          title: 'MediTrack',
+          locale: locale,
+          localizationsDelegates: const [
+            AppLocalizations.delegate,
+            GlobalMaterialLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate,
+            GlobalCupertinoLocalizations.delegate,
+          ],
+          supportedLocales: AppLocalizations.supportedLocales,
+          theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.indigo),
         useMaterial3: true,
         visualDensity: VisualDensity.adaptivePlatformDensity,
@@ -55,7 +71,9 @@ class MyApp extends StatelessWidget {
           unselectedItemColor: Colors.grey,
         ),
       ),
-      home: const RootScreen(),
+          home: const RootScreen(),
+        );
+      },
     );
   }
 }
