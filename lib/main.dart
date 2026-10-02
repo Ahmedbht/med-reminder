@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 import 'providers/medication_provider.dart';
@@ -9,12 +10,30 @@ import 'screens/history_screen.dart';
 
 final notificationService = NotificationService();
 
+const _localePrefsKey = 'app_locale';
+
 /// Holds the app's current language; change it to switch language at runtime.
 final ValueNotifier<Locale> localeNotifier = ValueNotifier(const Locale('en'));
+
+/// Persists the chosen language so it's remembered across app restarts.
+Future<void> saveLocale(Locale locale) async {
+  localeNotifier.value = locale;
+  final prefs = await SharedPreferences.getInstance();
+  await prefs.setString(_localePrefsKey, locale.languageCode);
+}
+
+Future<void> _loadSavedLocale() async {
+  final prefs = await SharedPreferences.getInstance();
+  final code = prefs.getString(_localePrefsKey);
+  if (code != null) {
+    localeNotifier.value = Locale(code);
+  }
+}
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await notificationService.init();
+  await _loadSavedLocale();
   runApp(
     MultiProvider(
       providers: [ChangeNotifierProvider(create: (_) => MedicationProvider())],
