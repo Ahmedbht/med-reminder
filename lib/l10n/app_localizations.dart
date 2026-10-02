@@ -228,6 +228,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Error: {message}'**
   String errorPrefix(String message);
+
+  /// No description provided for @formTablet.
+  ///
+  /// In en, this message translates to:
+  /// **'Tablet'**
+  String get formTablet;
+
+  /// No description provided for @formCapsule.
+  ///
+  /// In en, this message translates to:
+  /// **'Capsule'**
+  String get formCapsule;
+
+  /// No description provided for @formLiquid.
+  ///
+  /// In en, this message translates to:
+  /// **'Liquid'**
+  String get formLiquid;
+
+  /// No description provided for @formInjection.
+  ///
+  /// In en, this message translates to:
+  /// **'Injection'**
+  String get formInjection;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

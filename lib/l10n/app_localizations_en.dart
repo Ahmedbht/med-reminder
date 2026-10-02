@@ -79,4 +79,16 @@ class AppLocalizationsEn extends AppLocalizations {
   String errorPrefix(String message) {
     return 'Error: $message';
   }
+
+  @override
+  String get formTablet => 'Tablet';
+
+  @override
+  String get formCapsule => 'Capsule';
+
+  @override
+  String get formLiquid => 'Liquid';
+
+  @override
+  String get formInjection => 'Injection';
 }

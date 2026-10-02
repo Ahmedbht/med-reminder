@@ -20,5 +20,9 @@
   "myHistory": "Mon historique",
   "dosesTakenToday": "{taken} sur {total} doses prises aujourd'hui",
   "aboutMedication": "À propos de {name}",
-  "errorPrefix": "Erreur : {message}"
+  "errorPrefix": "Erreur : {message}",
+  "formTablet": "Comprimé",
+  "formCapsule": "Capsule",
+  "formLiquid": "Liquide",
+  "formInjection": "Injection"
 }

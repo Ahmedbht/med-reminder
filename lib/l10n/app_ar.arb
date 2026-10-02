@@ -20,5 +20,9 @@
   "myHistory": "سجلي",
   "dosesTakenToday": "{taken} من {total} جرعات تم أخذها اليوم",
   "aboutMedication": "حول {name}",
-  "errorPrefix": "خطأ: {message}"
+  "errorPrefix": "خطأ: {message}",
+  "formTablet": "قرص",
+  "formCapsule": "كبسولة",
+  "formLiquid": "سائل",
+  "formInjection": "حقنة"
 }

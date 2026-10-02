@@ -36,5 +36,9 @@
     "placeholders": {
       "message": {"type": "String"}
     }
-  }
+  },
+  "formTablet": "Tablet",
+  "formCapsule": "Capsule",
+  "formLiquid": "Liquid",
+  "formInjection": "Injection"
 }
