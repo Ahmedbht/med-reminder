@@ -92,6 +92,7 @@ class _RootScreenState extends State<RootScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Scaffold(
       body: _screens[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
@@ -101,9 +102,15 @@ class _RootScreenState extends State<RootScreen> {
             _currentIndex = index;
           });
         },
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-          BottomNavigationBarItem(icon: Icon(Icons.history), label: 'History'),
+        items: [
+          BottomNavigationBarItem(
+            icon: const Icon(Icons.home),
+            label: l10n.home,
+          ),
+          BottomNavigationBarItem(
+            icon: const Icon(Icons.history),
+            label: l10n.history,
+          ),
         ],
       ),
     );
