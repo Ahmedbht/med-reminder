@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:table_calendar/table_calendar.dart';
+import '../l10n/app_localizations.dart';
 import '../providers/medication_provider.dart';
 
 class HistoryScreen extends StatefulWidget {
@@ -16,6 +17,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     final medProvider = Provider.of<MedicationProvider>(context);
 
     final selectedResults = _selectedDay != null
@@ -23,7 +25,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
         : <Map<String, dynamic>>[];
 
     return Scaffold(
-      appBar: AppBar(title: const Text('My History')),
+      appBar: AppBar(title: Text(l10n.myHistory)),
       body: Column(
         children: [
           TableCalendar(
@@ -41,9 +43,9 @@ class _HistoryScreenState extends State<HistoryScreen> {
           const SizedBox(height: 12),
           Expanded(
             child: _selectedDay == null
-                ? const Center(child: Text('Select a date to see history'))
+                ? Center(child: Text(l10n.selectDateHistory))
                 : selectedResults.isEmpty
-                ? const Center(child: Text('No records for this day'))
+                ? Center(child: Text(l10n.noRecordsForDay))
                 : ListView.builder(
                     itemCount: selectedResults.length,
                     itemBuilder: (context, index) {
