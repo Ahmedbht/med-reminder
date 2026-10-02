@@ -17,5 +17,6 @@
   "keepUpGoodWork": "واصل العمل الرائع!",
   "selectDateHistory": "اختر تاريخًا لعرض السجل",
   "noRecordsForDay": "لا توجد سجلات لهذا اليوم",
-  "myHistory": "سجلي"
+  "myHistory": "سجلي",
+  "dosesTakenToday": "{taken} من {total} جرعات تم أخذها اليوم"
 }

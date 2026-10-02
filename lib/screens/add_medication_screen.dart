@@ -68,8 +68,9 @@ class _AddMedicationScreenState extends State<AddMedicationScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Scaffold(
-      appBar: AppBar(title: const Text('New Medication? Add it here!')),
+      appBar: AppBar(title: Text(l10n.addMedication)),
       body: Padding(
         padding: const EdgeInsets.all(20),
         child: ListView(
@@ -77,7 +78,7 @@ class _AddMedicationScreenState extends State<AddMedicationScreen> {
             TextField(
               controller: _nameController,
               decoration: InputDecoration(
-                labelText: 'Medication name',
+                labelText: l10n.medicationName,
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(12),
                 ),
@@ -86,14 +87,12 @@ class _AddMedicationScreenState extends State<AddMedicationScreen> {
             const SizedBox(height: 12),
             TextField(
               controller: _dosageController,
-              decoration: const InputDecoration(
-                labelText: 'Dosage (e.g. 500mg)',
-              ),
+              decoration: InputDecoration(labelText: l10n.dosage),
             ),
             const SizedBox(height: 12),
             DropdownButtonFormField<String>(
               initialValue: _form,
-              decoration: const InputDecoration(labelText: 'Form'),
+              decoration: InputDecoration(labelText: l10n.form),
               items: _formOptions.map((f) {
                 return DropdownMenuItem(value: f, child: Text(f));
               }).toList(),
@@ -106,7 +105,7 @@ class _AddMedicationScreenState extends State<AddMedicationScreen> {
             const SizedBox(height: 12),
             ListTile(
               contentPadding: EdgeInsets.zero,
-              title: const Text('Reminder time'),
+              title: Text(l10n.reminderTime),
               subtitle: Text(_selectedTime.format(context)),
               trailing: const Icon(Icons.access_time),
               onTap: _pickTime,
@@ -115,7 +114,7 @@ class _AddMedicationScreenState extends State<AddMedicationScreen> {
             TextField(
               controller: _noteController,
               decoration: InputDecoration(
-                labelText: 'Note (optional)',
+                labelText: l10n.note,
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(12),
                 ),
@@ -127,7 +126,7 @@ class _AddMedicationScreenState extends State<AddMedicationScreen> {
               style: ElevatedButton.styleFrom(
                 padding: const EdgeInsets.symmetric(vertical: 16),
               ),
-              child: const Text('Save Medication'),
+              child: Text(l10n.saveMedication),
             ),
           ],
         ),

@@ -210,6 +210,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'My History'**
   String get myHistory;
+
+  /// No description provided for @dosesTakenToday.
+  ///
+  /// In en, this message translates to:
+  /// **'{taken} of {total} doses taken today'**
+  String dosesTakenToday(int taken, int total);
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

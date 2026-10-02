@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import '../l10n/app_localizations.dart';
 import '../main.dart';
 import '../providers/medication_provider.dart';
 import 'add_medication_screen.dart';
@@ -23,6 +24,7 @@ class _HomeScreenState extends State<Homescreen> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     final medProvider = Provider.of<MedicationProvider>(context);
     final total = medProvider.totalCount;
     final taken = medProvider.takenCount;
@@ -30,7 +32,7 @@ class _HomeScreenState extends State<Homescreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('MediTrack'),
+        title: Text(l10n.appTitle),
         actions: [
           PopupMenuButton<Locale>(
             icon: const Icon(Icons.language),
@@ -48,16 +50,14 @@ class _HomeScreenState extends State<Homescreen> {
           Padding(
             padding: const EdgeInsets.fromLTRB(20, 20, 20, 8),
             child: Text(
-              'Good day, Stay healthy and be Strong! ',
+              l10n.greeting,
               style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
             ),
           ),
           Padding(
             padding: const EdgeInsets.fromLTRB(20, 0, 20, 16),
             child: Text(
-              total == 0
-                  ? 'Add your first medication'
-                  : 'Keep up the great work!',
+              total == 0 ? l10n.addFirstMedication : l10n.keepUpGoodWork,
               style: TextStyle(color: Colors.grey[600]),
             ),
           ),
@@ -102,7 +102,7 @@ class _HomeScreenState extends State<Homescreen> {
                   const SizedBox(width: 16),
                   Expanded(
                     child: Text(
-                      '$taken of $total doses taken today',
+                      l10n.dosesTakenToday(taken, total),
                       style: const TextStyle(
                         color: Colors.white,
                         fontSize: 16,
@@ -117,7 +117,7 @@ class _HomeScreenState extends State<Homescreen> {
           const SizedBox(height: 16),
           Expanded(
             child: medProvider.medications.isEmpty
-                ? const Center(child: Text('No medications added yet.'))
+                ? Center(child: Text(l10n.noMedicationsYet))
                 : ListView.builder(
                     padding: const EdgeInsets.fromLTRB(16, 8, 16, 100),
                     itemCount: medProvider.medications.length,
@@ -194,9 +194,11 @@ class _HomeScreenState extends State<Homescreen> {
                                             horizontal: 12,
                                           ),
                                         ),
-                                        child: const Text(
-                                          'Taken',
-                                          style: TextStyle(fontSize: 12),
+                                        child: Text(
+                                          l10n.takenButton,
+                                          style: const TextStyle(
+                                            fontSize: 12,
+                                          ),
                                         ),
                                       ),
                                 IconButton(
@@ -237,7 +239,7 @@ class _HomeScreenState extends State<Homescreen> {
           );
         },
         icon: const Icon(Icons.add),
-        label: const Text('Add Medication'),
+        label: Text(l10n.addMedication),
         backgroundColor: Colors.indigo,
       ),
     );

@@ -17,5 +17,12 @@
   "keepUpGoodWork": "Keep up the great work!",
   "selectDateHistory": "Select a date to see history",
   "noRecordsForDay": "No records for this day",
-  "myHistory": "My History"
+  "myHistory": "My History",
+  "dosesTakenToday": "{taken} of {total} doses taken today",
+  "@dosesTakenToday": {
+    "placeholders": {
+      "taken": {"type": "int"},
+      "total": {"type": "int"}
+    }
+  }
 }

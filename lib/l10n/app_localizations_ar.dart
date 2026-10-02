@@ -64,4 +64,9 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get myHistory => 'سجلي';
+
+  @override
+  String dosesTakenToday(int taken, int total) {
+    return '$taken من $total جرعات تم أخذها اليوم';
+  }
 }

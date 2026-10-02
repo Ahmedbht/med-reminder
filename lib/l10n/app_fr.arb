@@ -17,5 +17,6 @@
   "keepUpGoodWork": "Continuez comme ça !",
   "selectDateHistory": "Sélectionnez une date pour voir l'historique",
   "noRecordsForDay": "Aucun enregistrement pour ce jour",
-  "myHistory": "Mon historique"
+  "myHistory": "Mon historique",
+  "dosesTakenToday": "{taken} sur {total} doses prises aujourd'hui"
 }

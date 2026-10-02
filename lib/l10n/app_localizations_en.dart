@@ -64,4 +64,9 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get myHistory => 'My History';
+
+  @override
+  String dosesTakenToday(int taken, int total) {
+    return '$taken of $total doses taken today';
+  }
 }
