@@ -69,4 +69,14 @@ class AppLocalizationsEn extends AppLocalizations {
   String dosesTakenToday(int taken, int total) {
     return '$taken of $total doses taken today';
   }
+
+  @override
+  String aboutMedication(String name) {
+    return 'About $name';
+  }
+
+  @override
+  String errorPrefix(String message) {
+    return 'Error: $message';
+  }
 }

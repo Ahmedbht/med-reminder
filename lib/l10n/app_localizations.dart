@@ -216,6 +216,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'{taken} of {total} doses taken today'**
   String dosesTakenToday(int taken, int total);
+
+  /// No description provided for @aboutMedication.
+  ///
+  /// In en, this message translates to:
+  /// **'About {name}'**
+  String aboutMedication(String name);
+
+  /// No description provided for @errorPrefix.
+  ///
+  /// In en, this message translates to:
+  /// **'Error: {message}'**
+  String errorPrefix(String message);
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

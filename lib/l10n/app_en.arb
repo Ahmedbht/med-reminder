@@ -24,5 +24,17 @@
       "taken": {"type": "int"},
       "total": {"type": "int"}
     }
+  },
+  "aboutMedication": "About {name}",
+  "@aboutMedication": {
+    "placeholders": {
+      "name": {"type": "String"}
+    }
+  },
+  "errorPrefix": "Error: {message}",
+  "@errorPrefix": {
+    "placeholders": {
+      "message": {"type": "String"}
+    }
   }
 }

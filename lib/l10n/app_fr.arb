@@ -18,5 +18,7 @@
   "selectDateHistory": "Sélectionnez une date pour voir l'historique",
   "noRecordsForDay": "Aucun enregistrement pour ce jour",
   "myHistory": "Mon historique",
-  "dosesTakenToday": "{taken} sur {total} doses prises aujourd'hui"
+  "dosesTakenToday": "{taken} sur {total} doses prises aujourd'hui",
+  "aboutMedication": "À propos de {name}",
+  "errorPrefix": "Erreur : {message}"
 }

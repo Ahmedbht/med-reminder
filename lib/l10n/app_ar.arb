@@ -18,5 +18,7 @@
   "selectDateHistory": "اختر تاريخًا لعرض السجل",
   "noRecordsForDay": "لا توجد سجلات لهذا اليوم",
   "myHistory": "سجلي",
-  "dosesTakenToday": "{taken} من {total} جرعات تم أخذها اليوم"
+  "dosesTakenToday": "{taken} من {total} جرعات تم أخذها اليوم",
+  "aboutMedication": "حول {name}",
+  "errorPrefix": "خطأ: {message}"
 }
