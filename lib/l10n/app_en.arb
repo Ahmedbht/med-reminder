@@ -3,5 +3,19 @@
   "addMedication": "Add Medication",
   "medicationName": "Medication name",
   "dosage": "Dosage (e.g. 500mg)",
-  "saveMedication": "Save Medication"
+  "saveMedication": "Save Medication",
+  "home": "Home",
+  "history": "History",
+  "reminderTime": "Reminder time",
+  "note": "Note (optional)",
+  "form": "Form",
+  "pleaseEnterName": "Please enter a medication name",
+  "noMedicationsYet": "No medications added yet.",
+  "takenButton": "Taken",
+  "greeting": "Good day, Stay healthy and be Strong!",
+  "addFirstMedication": "Add your first medication",
+  "keepUpGoodWork": "Keep up the great work!",
+  "selectDateHistory": "Select a date to see history",
+  "noRecordsForDay": "No records for this day",
+  "myHistory": "My History"
 }

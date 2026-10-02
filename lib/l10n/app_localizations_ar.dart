@@ -22,4 +22,46 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get saveMedication => 'حفظ الدواء';
+
+  @override
+  String get home => 'الرئيسية';
+
+  @override
+  String get history => 'السجل';
+
+  @override
+  String get reminderTime => 'وقت التذكير';
+
+  @override
+  String get note => 'ملاحظة (اختياري)';
+
+  @override
+  String get form => 'الشكل';
+
+  @override
+  String get pleaseEnterName => 'الرجاء إدخال اسم الدواء';
+
+  @override
+  String get noMedicationsYet => 'لم تتم إضافة أي دواء بعد.';
+
+  @override
+  String get takenButton => 'تم أخذه';
+
+  @override
+  String get greeting => 'يوم سعيد، ابقَ بصحة جيدة وكن قويًا!';
+
+  @override
+  String get addFirstMedication => 'أضف أول دواء لك';
+
+  @override
+  String get keepUpGoodWork => 'واصل العمل الرائع!';
+
+  @override
+  String get selectDateHistory => 'اختر تاريخًا لعرض السجل';
+
+  @override
+  String get noRecordsForDay => 'لا توجد سجلات لهذا اليوم';
+
+  @override
+  String get myHistory => 'سجلي';
 }

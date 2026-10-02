@@ -126,6 +126,90 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Save Medication'**
   String get saveMedication;
+
+  /// No description provided for @home.
+  ///
+  /// In en, this message translates to:
+  /// **'Home'**
+  String get home;
+
+  /// No description provided for @history.
+  ///
+  /// In en, this message translates to:
+  /// **'History'**
+  String get history;
+
+  /// No description provided for @reminderTime.
+  ///
+  /// In en, this message translates to:
+  /// **'Reminder time'**
+  String get reminderTime;
+
+  /// No description provided for @note.
+  ///
+  /// In en, this message translates to:
+  /// **'Note (optional)'**
+  String get note;
+
+  /// No description provided for @form.
+  ///
+  /// In en, this message translates to:
+  /// **'Form'**
+  String get form;
+
+  /// No description provided for @pleaseEnterName.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter a medication name'**
+  String get pleaseEnterName;
+
+  /// No description provided for @noMedicationsYet.
+  ///
+  /// In en, this message translates to:
+  /// **'No medications added yet.'**
+  String get noMedicationsYet;
+
+  /// No description provided for @takenButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Taken'**
+  String get takenButton;
+
+  /// No description provided for @greeting.
+  ///
+  /// In en, this message translates to:
+  /// **'Good day, Stay healthy and be Strong!'**
+  String get greeting;
+
+  /// No description provided for @addFirstMedication.
+  ///
+  /// In en, this message translates to:
+  /// **'Add your first medication'**
+  String get addFirstMedication;
+
+  /// No description provided for @keepUpGoodWork.
+  ///
+  /// In en, this message translates to:
+  /// **'Keep up the great work!'**
+  String get keepUpGoodWork;
+
+  /// No description provided for @selectDateHistory.
+  ///
+  /// In en, this message translates to:
+  /// **'Select a date to see history'**
+  String get selectDateHistory;
+
+  /// No description provided for @noRecordsForDay.
+  ///
+  /// In en, this message translates to:
+  /// **'No records for this day'**
+  String get noRecordsForDay;
+
+  /// No description provided for @myHistory.
+  ///
+  /// In en, this message translates to:
+  /// **'My History'**
+  String get myHistory;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

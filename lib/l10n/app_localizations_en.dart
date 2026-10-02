@@ -22,4 +22,46 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get saveMedication => 'Save Medication';
+
+  @override
+  String get home => 'Home';
+
+  @override
+  String get history => 'History';
+
+  @override
+  String get reminderTime => 'Reminder time';
+
+  @override
+  String get note => 'Note (optional)';
+
+  @override
+  String get form => 'Form';
+
+  @override
+  String get pleaseEnterName => 'Please enter a medication name';
+
+  @override
+  String get noMedicationsYet => 'No medications added yet.';
+
+  @override
+  String get takenButton => 'Taken';
+
+  @override
+  String get greeting => 'Good day, Stay healthy and be Strong!';
+
+  @override
+  String get addFirstMedication => 'Add your first medication';
+
+  @override
+  String get keepUpGoodWork => 'Keep up the great work!';
+
+  @override
+  String get selectDateHistory => 'Select a date to see history';
+
+  @override
+  String get noRecordsForDay => 'No records for this day';
+
+  @override
+  String get myHistory => 'My History';
 }

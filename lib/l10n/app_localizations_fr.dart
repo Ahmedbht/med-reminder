@@ -22,4 +22,46 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get saveMedication => 'Enregistrer';
+
+  @override
+  String get home => 'Accueil';
+
+  @override
+  String get history => 'Historique';
+
+  @override
+  String get reminderTime => 'Heure du rappel';
+
+  @override
+  String get note => 'Note (optionnel)';
+
+  @override
+  String get form => 'Forme';
+
+  @override
+  String get pleaseEnterName => 'Veuillez entrer un nom de médicament';
+
+  @override
+  String get noMedicationsYet => 'Aucun médicament ajouté pour le moment.';
+
+  @override
+  String get takenButton => 'Pris';
+
+  @override
+  String get greeting => 'Bonne journée, restez en bonne santé et soyez fort !';
+
+  @override
+  String get addFirstMedication => 'Ajoutez votre premier médicament';
+
+  @override
+  String get keepUpGoodWork => 'Continuez comme ça !';
+
+  @override
+  String get selectDateHistory => 'Sélectionnez une date pour voir l\'historique';
+
+  @override
+  String get noRecordsForDay => 'Aucun enregistrement pour ce jour';
+
+  @override
+  String get myHistory => 'Mon historique';
 }

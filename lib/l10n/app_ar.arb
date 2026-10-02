@@ -3,5 +3,19 @@
   "addMedication": "إضافة دواء",
   "medicationName": "اسم الدواء",
   "dosage": "الجرعة (مثال: 500 ملغ)",
-  "saveMedication": "حفظ الدواء"
+  "saveMedication": "حفظ الدواء",
+  "home": "الرئيسية",
+  "history": "السجل",
+  "reminderTime": "وقت التذكير",
+  "note": "ملاحظة (اختياري)",
+  "form": "الشكل",
+  "pleaseEnterName": "الرجاء إدخال اسم الدواء",
+  "noMedicationsYet": "لم تتم إضافة أي دواء بعد.",
+  "takenButton": "تم أخذه",
+  "greeting": "يوم سعيد، ابقَ بصحة جيدة وكن قويًا!",
+  "addFirstMedication": "أضف أول دواء لك",
+  "keepUpGoodWork": "واصل العمل الرائع!",
+  "selectDateHistory": "اختر تاريخًا لعرض السجل",
+  "noRecordsForDay": "لا توجد سجلات لهذا اليوم",
+  "myHistory": "سجلي"
 }

@@ -3,5 +3,19 @@
   "addMedication": "Ajouter un médicament",
   "medicationName": "Nom du médicament",
   "dosage": "Dosage (ex: 500mg)",
-  "saveMedication": "Enregistrer"
+  "saveMedication": "Enregistrer",
+  "home": "Accueil",
+  "history": "Historique",
+  "reminderTime": "Heure du rappel",
+  "note": "Note (optionnel)",
+  "form": "Forme",
+  "pleaseEnterName": "Veuillez entrer un nom de médicament",
+  "noMedicationsYet": "Aucun médicament ajouté pour le moment.",
+  "takenButton": "Pris",
+  "greeting": "Bonne journée, restez en bonne santé et soyez fort !",
+  "addFirstMedication": "Ajoutez votre premier médicament",
+  "keepUpGoodWork": "Continuez comme ça !",
+  "selectDateHistory": "Sélectionnez une date pour voir l'historique",
+  "noRecordsForDay": "Aucun enregistrement pour ce jour",
+  "myHistory": "Mon historique"
 }
