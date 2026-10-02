@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../l10n/app_localizations.dart';
 import '../services/ai_service.dart';
 
 class MedicationInfoScreen extends StatefulWidget {
@@ -39,14 +40,17 @@ class _MedicationInfoScreenState extends State<MedicationInfoScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Scaffold(
-      appBar: AppBar(title: Text('About ${widget.medicationName}')),
+      appBar: AppBar(
+        title: Text(l10n.aboutMedication(widget.medicationName)),
+      ),
       body: Padding(
         padding: const EdgeInsets.all(20),
         child: _isLoading
             ? const Center(child: CircularProgressIndicator())
             : _error != null
-            ? Center(child: Text('Error: $_error'))
+            ? Center(child: Text(l10n.errorPrefix(_error!)))
             : SingleChildScrollView(
                 child: Text(
                   _info ?? '',
