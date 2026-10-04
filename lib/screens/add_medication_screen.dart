@@ -25,6 +25,19 @@ class _AddMedicationScreenState extends State<AddMedicationScreen> {
     'Injection',
   ];
 
+  String _formLabel(AppLocalizations l10n, String form) {
+    switch (form) {
+      case 'Capsule':
+        return l10n.formCapsule;
+      case 'Liquid':
+        return l10n.formLiquid;
+      case 'Injection':
+        return l10n.formInjection;
+      default:
+        return l10n.formTablet;
+    }
+  }
+
   Future<void> _pickTime() async {
     final picked = await showTimePicker(
       context: context,
@@ -94,7 +107,10 @@ class _AddMedicationScreenState extends State<AddMedicationScreen> {
               initialValue: _form,
               decoration: InputDecoration(labelText: l10n.form),
               items: _formOptions.map((f) {
-                return DropdownMenuItem(value: f, child: Text(f));
+                return DropdownMenuItem(
+                  value: f,
+                  child: Text(_formLabel(l10n, f)),
+                );
               }).toList(),
               onChanged: (value) {
                 setState(() {
