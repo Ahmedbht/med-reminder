@@ -91,4 +91,9 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get formInjection => 'Injection';
+
+  @override
+  String timeToTake(String name) {
+    return 'Time to take $name';
+  }
 }

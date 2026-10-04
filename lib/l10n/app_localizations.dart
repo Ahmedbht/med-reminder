@@ -252,6 +252,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Injection'**
   String get formInjection;
+
+  /// No description provided for @timeToTake.
+  ///
+  /// In en, this message translates to:
+  /// **'Time to take {name}'**
+  String timeToTake(String name);
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

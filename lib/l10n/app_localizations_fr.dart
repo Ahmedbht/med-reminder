@@ -91,4 +91,9 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get formInjection => 'Injection';
+
+  @override
+  String timeToTake(String name) {
+    return 'Il est temps de prendre $name';
+  }
 }

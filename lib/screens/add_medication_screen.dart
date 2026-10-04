@@ -71,7 +71,7 @@ class _AddMedicationScreenState extends State<AddMedicationScreen> {
 
     notificationService.scheduleNotification(
       id: DateTime.now().millisecondsSinceEpoch ~/ 1000,
-      title: 'time to take ${_nameController.text.trim()}',
+      title: l10n.timeToTake(_nameController.text.trim()),
       body: '${_dosageController.text.trim()} - $_form',
       hour: _selectedTime.hour,
       minute: _selectedTime.minute,

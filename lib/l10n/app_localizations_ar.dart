@@ -91,4 +91,9 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get formInjection => 'حقنة';
+
+  @override
+  String timeToTake(String name) {
+    return 'حان وقت تناول $name';
+  }
 }

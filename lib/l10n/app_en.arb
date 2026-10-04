@@ -40,5 +40,11 @@
   "formTablet": "Tablet",
   "formCapsule": "Capsule",
   "formLiquid": "Liquid",
-  "formInjection": "Injection"
+  "formInjection": "Injection",
+  "timeToTake": "Time to take {name}",
+  "@timeToTake": {
+    "placeholders": {
+      "name": {"type": "String"}
+    }
+  }
 }

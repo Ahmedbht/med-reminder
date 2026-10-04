@@ -24,5 +24,6 @@
   "formTablet": "قرص",
   "formCapsule": "كبسولة",
   "formLiquid": "سائل",
-  "formInjection": "حقنة"
+  "formInjection": "حقنة",
+  "timeToTake": "حان وقت تناول {name}"
 }

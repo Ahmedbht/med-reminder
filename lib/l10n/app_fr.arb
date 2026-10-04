@@ -24,5 +24,6 @@
   "formTablet": "Comprimé",
   "formCapsule": "Capsule",
   "formLiquid": "Liquide",
-  "formInjection": "Injection"
+  "formInjection": "Injection",
+  "timeToTake": "Il est temps de prendre {name}"
 }
