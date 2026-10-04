@@ -36,4 +36,24 @@ void main() {
 
     localeNotifier.value = const Locale('en');
   });
+
+  testWidgets('switching locale to French shows French home greeting', (
+    WidgetTester tester,
+  ) async {
+    await tester.pumpWidget(
+      ChangeNotifierProvider(
+        create: (_) => MedicationProvider(),
+        child: const MyApp(),
+      ),
+    );
+    localeNotifier.value = const Locale('fr');
+    await tester.pumpAndSettle();
+
+    expect(
+      find.text('Bonne journée, restez en bonne santé et soyez fort !'),
+      findsOneWidget,
+    );
+
+    localeNotifier.value = const Locale('en');
+  });
 }
