@@ -96,4 +96,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String timeToTake(String name) {
     return 'Time to take $name';
   }
+
+  @override
+  String get changeLanguage => 'Change language';
 }

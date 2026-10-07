@@ -96,4 +96,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String timeToTake(String name) {
     return 'حان وقت تناول $name';
   }
+
+  @override
+  String get changeLanguage => 'تغيير اللغة';
 }

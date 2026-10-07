@@ -36,6 +36,7 @@ class _HomeScreenState extends State<Homescreen> {
         actions: [
           PopupMenuButton<Locale>(
             icon: const Icon(Icons.language),
+            tooltip: l10n.changeLanguage,
             onSelected: saveLocale,
             itemBuilder: (context) => const [
               PopupMenuItem(value: Locale('en'), child: Text('English')),

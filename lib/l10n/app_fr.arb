@@ -25,5 +25,6 @@
   "formCapsule": "Capsule",
   "formLiquid": "Liquide",
   "formInjection": "Injection",
-  "timeToTake": "Il est temps de prendre {name}"
+  "timeToTake": "Il est temps de prendre {name}",
+  "changeLanguage": "Changer de langue"
 }
