@@ -196,9 +196,7 @@ class _HomeScreenState extends State<Homescreen> {
                                         ),
                                         child: Text(
                                           l10n.takenButton,
-                                          style: const TextStyle(
-                                            fontSize: 12,
-                                          ),
+                                          style: const TextStyle(fontSize: 12),
                                         ),
                                       ),
                                 IconButton(
