@@ -42,9 +42,7 @@ class _MedicationInfoScreenState extends State<MedicationInfoScreen> {
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
     return Scaffold(
-      appBar: AppBar(
-        title: Text(l10n.aboutMedication(widget.medicationName)),
-      ),
+      appBar: AppBar(title: Text(l10n.aboutMedication(widget.medicationName))),
       body: Padding(
         padding: const EdgeInsets.all(20),
         child: _isLoading
