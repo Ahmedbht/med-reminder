@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import '../l10n/app_localizations.dart';
 import '../main.dart';
 import '../providers/medication_provider.dart';
+import '../utils/form_label.dart';
 import 'add_medication_screen.dart';
 import 'medication_info_screen.dart';
 
@@ -171,7 +172,7 @@ class _HomeScreenState extends State<Homescreen> {
                                       ),
                                       const SizedBox(height: 4),
                                       Text(
-                                        '${med.dosage} • ${med.form} • ${med.time}',
+                                        '${med.dosage} • ${formLabel(l10n, med.form)} • ${med.time}',
                                         style: TextStyle(
                                           color: Colors.grey[600],
                                           fontSize: 13,

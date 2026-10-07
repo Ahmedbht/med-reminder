@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../l10n/app_localizations.dart';
 import '../providers/medication_provider.dart';
+import '../utils/form_label.dart';
 import '../main.dart';
 
 class AddMedicationScreen extends StatefulWidget {
@@ -24,19 +25,6 @@ class _AddMedicationScreenState extends State<AddMedicationScreen> {
     'Liquid',
     'Injection',
   ];
-
-  String _formLabel(AppLocalizations l10n, String form) {
-    switch (form) {
-      case 'Capsule':
-        return l10n.formCapsule;
-      case 'Liquid':
-        return l10n.formLiquid;
-      case 'Injection':
-        return l10n.formInjection;
-      default:
-        return l10n.formTablet;
-    }
-  }
 
   Future<void> _pickTime() async {
     final picked = await showTimePicker(
@@ -109,7 +97,7 @@ class _AddMedicationScreenState extends State<AddMedicationScreen> {
               items: _formOptions.map((f) {
                 return DropdownMenuItem(
                   value: f,
-                  child: Text(_formLabel(l10n, f)),
+                  child: Text(formLabel(l10n, f)),
                 );
               }).toList(),
               onChanged: (value) {
