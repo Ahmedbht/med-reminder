@@ -57,7 +57,8 @@ class AppLocalizationsFr extends AppLocalizations {
   String get keepUpGoodWork => 'Continuez comme ça !';
 
   @override
-  String get selectDateHistory => 'Sélectionnez une date pour voir l\'historique';
+  String get selectDateHistory =>
+      'Sélectionnez une date pour voir l\'historique';
 
   @override
   String get noRecordsForDay => 'Aucun enregistrement pour ce jour';
