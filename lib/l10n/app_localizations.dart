@@ -264,6 +264,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Change language'**
   String get changeLanguage;
+
+  /// No description provided for @statusTaken.
+  ///
+  /// In en, this message translates to:
+  /// **'taken'**
+  String get statusTaken;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

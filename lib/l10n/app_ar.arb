@@ -26,5 +26,6 @@
   "formLiquid": "سائل",
   "formInjection": "حقنة",
   "timeToTake": "حان وقت تناول {name}",
-  "changeLanguage": "تغيير اللغة"
+  "changeLanguage": "تغيير اللغة",
+  "statusTaken": "تم أخذه"
 }

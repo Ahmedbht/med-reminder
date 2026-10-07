@@ -99,4 +99,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get changeLanguage => 'تغيير اللغة';
+
+  @override
+  String get statusTaken => 'تم أخذه';
 }

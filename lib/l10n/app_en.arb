@@ -47,5 +47,6 @@
       "name": {"type": "String"}
     }
   },
-  "changeLanguage": "Change language"
+  "changeLanguage": "Change language",
+  "statusTaken": "taken"
 }

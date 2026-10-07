@@ -99,4 +99,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get changeLanguage => 'Changer de langue';
+
+  @override
+  String get statusTaken => 'pris';
 }

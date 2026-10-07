@@ -60,7 +60,11 @@ class _HistoryScreenState extends State<HistoryScreen> {
                               : Colors.red,
                         ),
                         title: Text(entry['name']),
-                        subtitle: Text(entry['status']),
+                        subtitle: Text(
+                          entry['status'] == 'taken'
+                              ? l10n.statusTaken
+                              : entry['status'],
+                        ),
                       );
                     },
                   ),
