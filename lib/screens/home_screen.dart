@@ -134,8 +134,8 @@ class _HomeScreenState extends State<Homescreen> {
                       return Container(
                         margin: const EdgeInsets.only(bottom: 12),
                         decoration: BoxDecoration(
-                          border: Border(
-                            left: BorderSide(color: borderColor, width: 4),
+                          border: BorderDirectional(
+                            start: BorderSide(color: borderColor, width: 4),
                           ),
                           borderRadius: BorderRadius.circular(8),
                         ),
