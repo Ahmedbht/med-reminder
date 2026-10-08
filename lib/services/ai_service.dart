@@ -6,10 +6,18 @@ class AiService {
   static const String _baseUrl =
       'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent';
 
-  Future<String> getMedicationInfo(String medicationName) async {
+  Future<String> getMedicationInfo(
+    String medicationName, {
+    String languageCode = 'en',
+  }) async {
     final url = Uri.parse('$_baseUrl?key=${ApiConfig.geminiApiKey}');
+    final languageName = switch (languageCode) {
+      'ar' => 'Arabic',
+      'fr' => 'French',
+      _ => 'English',
+    };
     final prompt =
-        'In simple, plain language, briefly explain what the medication "$medicationName" is commonly used for and any general usage notes. Keep it under 100 words. End with: "This is general information only, not medical advice. Consult your doctor or pharmacist."';
+        'In simple, plain language, briefly explain what the medication "$medicationName" is commonly used for and any general usage notes. Keep it under 100 words. Respond in $languageName. End with a short sentence (in $languageName) meaning: "This is general information only, not medical advice. Consult your doctor or pharmacist."';
 
     final response = await http.post(
       url,

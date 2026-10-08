@@ -25,7 +25,10 @@ class _MedicationInfoScreenState extends State<MedicationInfoScreen> {
 
   Future<void> _loadInfo() async {
     try {
-      final result = await _aiService.getMedicationInfo(widget.medicationName);
+      final result = await _aiService.getMedicationInfo(
+        widget.medicationName,
+        languageCode: Localizations.localeOf(context).languageCode,
+      );
       setState(() {
         _info = result;
         _isLoading = false;
