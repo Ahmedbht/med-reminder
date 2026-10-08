@@ -29,6 +29,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
       body: Column(
         children: [
           TableCalendar(
+            locale: Localizations.localeOf(context).languageCode,
             firstDay: DateTime.utc(2024, 1, 1),
             lastDay: DateTime.utc(2030, 12, 31),
             focusedDay: _focusedDay,
