@@ -27,5 +27,6 @@
   "formInjection": "Injection",
   "timeToTake": "Il est temps de prendre {name}",
   "changeLanguage": "Changer de langue",
-  "statusTaken": "pris"
+  "statusTaken": "pris",
+  "medicationDeleted": "{name} supprimé"
 }

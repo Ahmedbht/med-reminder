@@ -270,6 +270,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'taken'**
   String get statusTaken;
+
+  /// No description provided for @medicationDeleted.
+  ///
+  /// In en, this message translates to:
+  /// **'{name} deleted'**
+  String medicationDeleted(String name);
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

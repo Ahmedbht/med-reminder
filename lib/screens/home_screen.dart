@@ -131,94 +131,118 @@ class _HomeScreenState extends State<Homescreen> {
                           ? Colors.red
                           : Colors.blue;
 
-                      return Container(
-                        margin: const EdgeInsets.only(bottom: 12),
-                        decoration: BoxDecoration(
-                          border: BorderDirectional(
-                            start: BorderSide(color: borderColor, width: 4),
+                      return Dismissible(
+                        key: ValueKey(med.id),
+                        direction: DismissDirection.endToStart,
+                        background: Container(
+                          alignment: AlignmentDirectional.centerEnd,
+                          padding: const EdgeInsetsDirectional.only(end: 20),
+                          margin: const EdgeInsets.only(bottom: 12),
+                          decoration: BoxDecoration(
+                            color: Colors.red,
+                            borderRadius: BorderRadius.circular(8),
                           ),
-                          borderRadius: BorderRadius.circular(8),
+                          child: const Icon(Icons.delete, color: Colors.white),
                         ),
-                        child: Card(
-                          margin: EdgeInsets.zero,
-                          elevation: 2,
-                          shadowColor: Colors.black26,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(16),
+                        onDismissed: (_) {
+                          medProvider.deleteMedication(med.id);
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              content: Text(l10n.medicationDeleted(med.name)),
+                            ),
+                          );
+                        },
+                        child: Container(
+                          margin: const EdgeInsets.only(bottom: 12),
+                          decoration: BoxDecoration(
+                            border: BorderDirectional(
+                              start: BorderSide(color: borderColor, width: 4),
+                            ),
+                            borderRadius: BorderRadius.circular(8),
                           ),
-                          child: Padding(
-                            padding: const EdgeInsets.all(12),
-                            child: Row(
-                              children: [
-                                CircleAvatar(
-                                  backgroundColor: Colors.teal[50],
-                                  child: const Icon(
-                                    Icons.medication,
-                                    color: Colors.teal,
+                          child: Card(
+                            margin: EdgeInsets.zero,
+                            elevation: 2,
+                            shadowColor: Colors.black26,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(16),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.all(12),
+                              child: Row(
+                                children: [
+                                  CircleAvatar(
+                                    backgroundColor: Colors.teal[50],
+                                    child: const Icon(
+                                      Icons.medication,
+                                      color: Colors.teal,
+                                    ),
                                   ),
-                                ),
-                                const SizedBox(width: 12),
-                                Expanded(
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        med.name,
-                                        style: const TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 16,
-                                        ),
-                                      ),
-                                      const SizedBox(height: 4),
-                                      Text(
-                                        '${med.dosage} • ${formLabel(l10n, med.form)} • ${med.time}',
-                                        style: TextStyle(
-                                          color: Colors.grey[600],
-                                          fontSize: 13,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                med.isTaken
-                                    ? const Icon(
-                                        Icons.check_circle,
-                                        color: Colors.green,
-                                        size: 24,
-                                      )
-                                    : ElevatedButton(
-                                        onPressed: () {
-                                          medProvider.markAsTaken(med.id);
-                                        },
-                                        style: ElevatedButton.styleFrom(
-                                          padding: const EdgeInsets.symmetric(
-                                            horizontal: 12,
+                                  const SizedBox(width: 12),
+                                  Expanded(
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          med.name,
+                                          style: const TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 16,
                                           ),
                                         ),
-                                        child: Text(
-                                          l10n.takenButton,
-                                          style: const TextStyle(fontSize: 12),
+                                        const SizedBox(height: 4),
+                                        Text(
+                                          '${med.dosage} • ${formLabel(l10n, med.form)} • ${med.time}',
+                                          style: TextStyle(
+                                            color: Colors.grey[600],
+                                            fontSize: 13,
+                                          ),
                                         ),
-                                      ),
-                                IconButton(
-                                  icon: const Icon(
-                                    Icons.info_outline,
-                                    color: Colors.indigo,
+                                      ],
+                                    ),
                                   ),
-                                  onPressed: () {
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) =>
-                                            MedicationInfoScreen(
-                                              medicationName: med.name,
+                                  med.isTaken
+                                      ? const Icon(
+                                          Icons.check_circle,
+                                          color: Colors.green,
+                                          size: 24,
+                                        )
+                                      : ElevatedButton(
+                                          onPressed: () {
+                                            medProvider.markAsTaken(med.id);
+                                          },
+                                          style: ElevatedButton.styleFrom(
+                                            padding: const EdgeInsets.symmetric(
+                                              horizontal: 12,
                                             ),
-                                      ),
-                                    );
-                                  },
-                                ),
-                              ],
+                                          ),
+                                          child: Text(
+                                            l10n.takenButton,
+                                            style: const TextStyle(
+                                              fontSize: 12,
+                                            ),
+                                          ),
+                                        ),
+                                  IconButton(
+                                    icon: const Icon(
+                                      Icons.info_outline,
+                                      color: Colors.indigo,
+                                    ),
+                                    onPressed: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) =>
+                                              MedicationInfoScreen(
+                                                medicationName: med.name,
+                                              ),
+                                        ),
+                                      );
+                                    },
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ),

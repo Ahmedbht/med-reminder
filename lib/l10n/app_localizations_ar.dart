@@ -102,4 +102,9 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get statusTaken => 'تم أخذه';
+
+  @override
+  String medicationDeleted(String name) {
+    return 'تم حذف $name';
+  }
 }

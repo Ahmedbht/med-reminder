@@ -48,5 +48,11 @@
     }
   },
   "changeLanguage": "Change language",
-  "statusTaken": "taken"
+  "statusTaken": "taken",
+  "medicationDeleted": "{name} deleted",
+  "@medicationDeleted": {
+    "placeholders": {
+      "name": {"type": "String"}
+    }
+  }
 }

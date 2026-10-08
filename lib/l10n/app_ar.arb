@@ -27,5 +27,6 @@
   "formInjection": "حقنة",
   "timeToTake": "حان وقت تناول {name}",
   "changeLanguage": "تغيير اللغة",
-  "statusTaken": "تم أخذه"
+  "statusTaken": "تم أخذه",
+  "medicationDeleted": "تم حذف {name}"
 }

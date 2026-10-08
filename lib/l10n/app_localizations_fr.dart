@@ -102,4 +102,9 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get statusTaken => 'pris';
+
+  @override
+  String medicationDeleted(String name) {
+    return '$name supprimé';
+  }
 }
