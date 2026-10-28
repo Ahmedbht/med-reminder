@@ -32,5 +32,6 @@
   "deleteConfirmTitle": "Supprimer le médicament ?",
   "deleteConfirmBody": "Voulez-vous vraiment supprimer {name} ?",
   "cancel": "Annuler",
-  "delete": "Supprimer"
+  "delete": "Supprimer",
+  "todaysProgress": "Progrès du jour"
 }

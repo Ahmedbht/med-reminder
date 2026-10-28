@@ -26,6 +26,8 @@ class _HomeScreenState extends State<Homescreen> {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
+    final theme = Theme.of(context);
+    final colorScheme = theme.colorScheme;
     final medProvider = Provider.of<MedicationProvider>(context);
     final total = medProvider.totalCount;
     final taken = medProvider.takenCount;
@@ -50,17 +52,41 @@ class _HomeScreenState extends State<Homescreen> {
       body: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.fromLTRB(20, 20, 20, 8),
-            child: Text(
-              l10n.greeting,
-              style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.fromLTRB(20, 0, 20, 16),
-            child: Text(
-              total == 0 ? l10n.addFirstMedication : l10n.keepUpGoodWork,
-              style: TextStyle(color: Colors.grey[600]),
+            padding: const EdgeInsets.fromLTRB(20, 16, 20, 16),
+            child: Row(
+              children: [
+                CircleAvatar(
+                  radius: 24,
+                  backgroundColor: colorScheme.primaryContainer,
+                  child: Icon(
+                    Icons.favorite_rounded,
+                    color: colorScheme.primary,
+                  ),
+                ),
+                const SizedBox(width: 12),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        l10n.greeting,
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                        style: theme.textTheme.titleMedium,
+                      ),
+                      const SizedBox(height: 2),
+                      Text(
+                        total == 0
+                            ? l10n.addFirstMedication
+                            : l10n.keepUpGoodWork,
+                        style: theme.textTheme.bodySmall?.copyWith(
+                          color: Colors.grey[600],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
             ),
           ),
           Padding(
@@ -69,57 +95,102 @@ class _HomeScreenState extends State<Homescreen> {
               padding: const EdgeInsets.all(20),
               decoration: BoxDecoration(
                 gradient: LinearGradient(
-                  colors: [Colors.indigo[400]!, Colors.indigo[700]!],
+                  colors: [colorScheme.primary, colorScheme.tertiary],
                   begin: Alignment.topLeft,
                   end: Alignment.bottomRight,
                 ),
                 borderRadius: BorderRadius.circular(20),
+                boxShadow: [
+                  BoxShadow(
+                    color: colorScheme.primary.withValues(alpha: 0.25),
+                    blurRadius: 16,
+                    offset: const Offset(0, 8),
+                  ),
+                ],
               ),
               child: Row(
                 children: [
                   SizedBox(
-                    width: 64,
-                    height: 64,
+                    width: 72,
+                    height: 72,
                     child: Stack(
                       alignment: Alignment.center,
                       children: [
-                        CircularProgressIndicator(
-                          value: progress,
-                          strokeWidth: 6,
-                          backgroundColor: Colors.white24,
-                          valueColor: const AlwaysStoppedAnimation(
-                            Colors.white,
+                        SizedBox.expand(
+                          child: CircularProgressIndicator(
+                            value: progress,
+                            strokeWidth: 7,
+                            strokeCap: StrokeCap.round,
+                            backgroundColor: Colors.white24,
+                            valueColor: const AlwaysStoppedAnimation(
+                              Colors.white,
+                            ),
                           ),
                         ),
                         Text(
                           '${(progress * 100).round()}%',
                           style: const TextStyle(
                             color: Colors.white,
+                            fontSize: 18,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
                       ],
                     ),
                   ),
-                  const SizedBox(width: 16),
+                  const SizedBox(width: 18),
                   Expanded(
-                    child: Text(
-                      l10n.dosesTakenToday(taken, total),
-                      style: const TextStyle(
-                        color: Colors.white,
-                        fontSize: 16,
-                        fontWeight: FontWeight.w500,
-                      ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Text(
+                          l10n.dosesTakenToday(taken, total),
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                        const SizedBox(height: 4),
+                        Text(
+                          l10n.todaysProgress,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: TextStyle(
+                            color: Colors.white.withValues(alpha: 0.85),
+                            fontSize: 13,
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ],
               ),
             ),
           ),
-          const SizedBox(height: 16),
+          const SizedBox(height: 20),
           Expanded(
             child: medProvider.medications.isEmpty
-                ? Center(child: Text(l10n.noMedicationsYet))
+                ? Center(
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Icon(
+                          Icons.medication_outlined,
+                          size: 56,
+                          color: Colors.grey[350],
+                        ),
+                        const SizedBox(height: 12),
+                        Text(
+                          l10n.noMedicationsYet,
+                          style: theme.textTheme.bodyMedium?.copyWith(
+                            color: Colors.grey[500],
+                          ),
+                        ),
+                      ],
+                    ),
+                  )
                 : ListView.builder(
                     padding: const EdgeInsets.fromLTRB(16, 8, 16, 100),
                     itemCount: medProvider.medications.length,
@@ -172,94 +243,105 @@ class _HomeScreenState extends State<Homescreen> {
                         child: Container(
                           margin: const EdgeInsets.only(bottom: 12),
                           decoration: BoxDecoration(
+                            color: Colors.white,
                             border: BorderDirectional(
                               start: BorderSide(color: borderColor, width: 4),
                             ),
-                            borderRadius: BorderRadius.circular(8),
-                          ),
-                          child: Card(
-                            margin: EdgeInsets.zero,
-                            elevation: 2,
-                            shadowColor: Colors.black26,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(16),
-                            ),
-                            child: Padding(
-                              padding: const EdgeInsets.all(12),
-                              child: Row(
-                                children: [
-                                  CircleAvatar(
-                                    backgroundColor: Colors.teal[50],
-                                    child: const Icon(
-                                      Icons.medication,
-                                      color: Colors.teal,
-                                    ),
-                                  ),
-                                  const SizedBox(width: 12),
-                                  Expanded(
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Text(
-                                          med.name,
-                                          style: const TextStyle(
-                                            fontWeight: FontWeight.bold,
-                                            fontSize: 16,
-                                          ),
-                                        ),
-                                        const SizedBox(height: 4),
-                                        Text(
-                                          '${med.dosage} • ${formLabel(l10n, med.form)} • ${med.time}',
-                                          style: TextStyle(
-                                            color: Colors.grey[600],
-                                            fontSize: 13,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                  med.isTaken
-                                      ? const Icon(
-                                          Icons.check_circle,
-                                          color: Colors.green,
-                                          size: 24,
-                                        )
-                                      : ElevatedButton(
-                                          onPressed: () {
-                                            medProvider.markAsTaken(med.id);
-                                          },
-                                          style: ElevatedButton.styleFrom(
-                                            padding: const EdgeInsets.symmetric(
-                                              horizontal: 12,
-                                            ),
-                                          ),
-                                          child: Text(
-                                            l10n.takenButton,
-                                            style: const TextStyle(
-                                              fontSize: 12,
-                                            ),
-                                          ),
-                                        ),
-                                  IconButton(
-                                    icon: const Icon(
-                                      Icons.info_outline,
-                                      color: Colors.indigo,
-                                    ),
-                                    onPressed: () {
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                          builder: (context) =>
-                                              MedicationInfoScreen(
-                                                medicationName: med.name,
-                                              ),
-                                        ),
-                                      );
-                                    },
-                                  ),
-                                ],
+                            borderRadius: BorderRadius.circular(16),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black.withValues(alpha: 0.04),
+                                blurRadius: 10,
+                                offset: const Offset(0, 3),
                               ),
+                            ],
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.all(14),
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Container(
+                                  width: 44,
+                                  height: 44,
+                                  decoration: BoxDecoration(
+                                    color: Colors.teal.withValues(alpha: 0.1),
+                                    borderRadius: BorderRadius.circular(12),
+                                  ),
+                                  child: const Icon(
+                                    Icons.medication_outlined,
+                                    color: Colors.teal,
+                                  ),
+                                ),
+                                const SizedBox(width: 14),
+                                Expanded(
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        med.name,
+                                        style: theme.textTheme.titleMedium,
+                                      ),
+                                      const SizedBox(height: 6),
+                                      Wrap(
+                                        spacing: 10,
+                                        runSpacing: 4,
+                                        children: [
+                                          _InfoChip(
+                                            icon: Icons.medication_liquid,
+                                            label:
+                                                '${med.dosage} • ${formLabel(l10n, med.form)}',
+                                          ),
+                                          _InfoChip(
+                                            icon: Icons.schedule,
+                                            label: med.time,
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                const SizedBox(width: 4),
+                                Column(
+                                  children: [
+                                    IconButton(
+                                      visualDensity: VisualDensity.compact,
+                                      onPressed: med.isTaken
+                                          ? null
+                                          : () =>
+                                                medProvider.markAsTaken(med.id),
+                                      icon: Icon(
+                                        med.isTaken
+                                            ? Icons.check_circle
+                                            : Icons.circle_outlined,
+                                        color: med.isTaken
+                                            ? Colors.green
+                                            : Colors.grey[400],
+                                      ),
+                                      tooltip: l10n.takenButton,
+                                    ),
+                                    IconButton(
+                                      visualDensity: VisualDensity.compact,
+                                      icon: Icon(
+                                        Icons.info_outline,
+                                        color: colorScheme.primary,
+                                      ),
+                                      onPressed: () {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) =>
+                                                MedicationInfoScreen(
+                                                  medicationName: med.name,
+                                                ),
+                                          ),
+                                        );
+                                      },
+                                    ),
+                                  ],
+                                ),
+                              ],
                             ),
                           ),
                         ),
@@ -281,8 +363,33 @@ class _HomeScreenState extends State<Homescreen> {
         },
         icon: const Icon(Icons.add),
         label: Text(l10n.addMedication),
-        backgroundColor: Colors.indigo,
       ),
+    );
+  }
+}
+
+/// A small pill showing an icon + label, used for dosage/time metadata
+/// on a medication card.
+class _InfoChip extends StatelessWidget {
+  final IconData icon;
+  final String label;
+
+  const _InfoChip({required this.icon, required this.label});
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Icon(icon, size: 13, color: Colors.grey[500]),
+        const SizedBox(width: 4),
+        Text(
+          label,
+          style: Theme.of(
+            context,
+          ).textTheme.bodySmall?.copyWith(color: Colors.grey[600]),
+        ),
+      ],
     );
   }
 }

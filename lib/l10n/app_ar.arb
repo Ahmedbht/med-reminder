@@ -32,5 +32,6 @@
   "deleteConfirmTitle": "حذف الدواء؟",
   "deleteConfirmBody": "هل أنت متأكد أنك تريد حذف {name}؟",
   "cancel": "إلغاء",
-  "delete": "حذف"
+  "delete": "حذف",
+  "todaysProgress": "تقدم اليوم"
 }

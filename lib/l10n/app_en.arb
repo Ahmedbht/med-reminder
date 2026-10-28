@@ -63,5 +63,6 @@
     }
   },
   "cancel": "Cancel",
-  "delete": "Delete"
+  "delete": "Delete",
+  "todaysProgress": "Today's progress"
 }
