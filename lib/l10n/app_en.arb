@@ -54,5 +54,14 @@
     "placeholders": {
       "name": {"type": "String"}
     }
-  }
+  },
+  "deleteConfirmTitle": "Delete medication?",
+  "deleteConfirmBody": "Are you sure you want to delete {name}?",
+  "@deleteConfirmBody": {
+    "placeholders": {
+      "name": {"type": "String"}
+    }
+  },
+  "cancel": "Cancel",
+  "delete": "Delete"
 }

@@ -28,5 +28,9 @@
   "timeToTake": "حان وقت تناول {name}",
   "changeLanguage": "تغيير اللغة",
   "statusTaken": "تم أخذه",
-  "medicationDeleted": "تم حذف {name}"
+  "medicationDeleted": "تم حذف {name}",
+  "deleteConfirmTitle": "حذف الدواء؟",
+  "deleteConfirmBody": "هل أنت متأكد أنك تريد حذف {name}؟",
+  "cancel": "إلغاء",
+  "delete": "حذف"
 }

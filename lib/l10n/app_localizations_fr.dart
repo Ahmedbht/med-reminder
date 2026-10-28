@@ -107,4 +107,18 @@ class AppLocalizationsFr extends AppLocalizations {
   String medicationDeleted(String name) {
     return '$name supprimé';
   }
+
+  @override
+  String get deleteConfirmTitle => 'Supprimer le médicament ?';
+
+  @override
+  String deleteConfirmBody(String name) {
+    return 'Voulez-vous vraiment supprimer $name ?';
+  }
+
+  @override
+  String get cancel => 'Annuler';
+
+  @override
+  String get delete => 'Supprimer';
 }

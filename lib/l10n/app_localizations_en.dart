@@ -107,4 +107,18 @@ class AppLocalizationsEn extends AppLocalizations {
   String medicationDeleted(String name) {
     return '$name deleted';
   }
+
+  @override
+  String get deleteConfirmTitle => 'Delete medication?';
+
+  @override
+  String deleteConfirmBody(String name) {
+    return 'Are you sure you want to delete $name?';
+  }
+
+  @override
+  String get cancel => 'Cancel';
+
+  @override
+  String get delete => 'Delete';
 }

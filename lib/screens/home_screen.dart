@@ -144,6 +144,23 @@ class _HomeScreenState extends State<Homescreen> {
                           ),
                           child: const Icon(Icons.delete, color: Colors.white),
                         ),
+                        confirmDismiss: (_) => showDialog<bool>(
+                          context: context,
+                          builder: (context) => AlertDialog(
+                            title: Text(l10n.deleteConfirmTitle),
+                            content: Text(l10n.deleteConfirmBody(med.name)),
+                            actions: [
+                              TextButton(
+                                onPressed: () => Navigator.pop(context, false),
+                                child: Text(l10n.cancel),
+                              ),
+                              TextButton(
+                                onPressed: () => Navigator.pop(context, true),
+                                child: Text(l10n.delete),
+                              ),
+                            ],
+                          ),
+                        ).then((confirmed) => confirmed ?? false),
                         onDismissed: (_) {
                           medProvider.deleteMedication(med.id);
                           ScaffoldMessenger.of(context).showSnackBar(
