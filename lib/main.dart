@@ -6,6 +6,7 @@ import 'l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 import 'providers/medication_provider.dart';
 import 'screens/home_screen.dart';
+import 'screens/splash_screen.dart';
 import 'services/notification_service.dart';
 import 'screens/history_screen.dart';
 
@@ -149,7 +150,7 @@ class MyApp extends StatelessWidget {
           ],
           supportedLocales: AppLocalizations.supportedLocales,
           theme: _buildTheme(),
-          home: const RootScreen(),
+          home: const SplashScreen(),
         );
       },
     );

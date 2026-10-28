@@ -18,6 +18,9 @@ void main() {
     await tester.pump();
 
     expect(find.text('MediTrack'), findsWidgets);
+
+    await tester.pump(const Duration(milliseconds: 1700));
+    await tester.pumpAndSettle();
   });
 
   testWidgets('switching locale to Arabic shows Arabic home greeting', (
@@ -29,6 +32,8 @@ void main() {
         child: const MyApp(),
       ),
     );
+    await tester.pump(const Duration(milliseconds: 1700));
+    await tester.pumpAndSettle();
     localeNotifier.value = const Locale('ar');
     await tester.pumpAndSettle();
 
@@ -46,6 +51,8 @@ void main() {
         child: const MyApp(),
       ),
     );
+    await tester.pump(const Duration(milliseconds: 1700));
+    await tester.pumpAndSettle();
     localeNotifier.value = const Locale('fr');
     await tester.pumpAndSettle();
 
